@@ -63,6 +63,8 @@
  //             }
              
  //         traverse('F:\Program Files\wamp\www\ckplayer');
-$url = "http://www.bduw.com";
- $homepage = file_get_contents($url);
-print_r($homepage);
+
+
+
+//sql 注入，他们为什么都用这么一串?
+echo (chr(95).chr(33).chr(64).chr(52).chr(100).chr(105).chr(108).chr(101).chr(109).chr(109).chr(97) );
