@@ -27,7 +27,7 @@
 $auth = "?&oauth=267661ed180c29e6f709385e0c0b36483cc4758a";
 
   function answer_add($auth){
-    $url = "http://localhost:8089/apps/aq_answer/add".$auth;
+    $url = "http://localhost:8089/apps/teacher/add_answer".$auth;
     $param = '';
     $param .= '&question_id=14';
     $param .= '&teacher_id=812800129';
@@ -77,7 +77,7 @@ function pic_reply($auth){
   function ask_question($auth){
     $url = "http://localhost:8089/apps/aq_question/ask".$auth;
     $param = '';
-    $param .= '&grade=2';
+    $param .= '&grade=1';
     $param .= '&subject_id=1';
     $param .= '&user_id=1';
     
