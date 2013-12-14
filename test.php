@@ -1,5 +1,27 @@
 <?php
-// echo date('YmdH:i:s',1374508800);
+
+
+$a = null;
+
+if($a){
+  echo 'true';
+}else{
+  echo 'false';
+}
+die;
+
+// echo time();
+// echo '<br>';
+// echo $t=strtotime("first day of this month").'<br>';
+echo strtotime(date("Y-m-01"));
+$date = new DateTime('first day of this month'); 
+$date->setTime(0, 0, 0);
+echo $t=strtotime($date->date);
+echo date('Y/m/d H:i:s',$t);
+
+
+
+
 // $array = Array ( "a" => bar , "15" => 1, "16" => 1 ) ;
 // //遍历数组 $array：
 // // foreach ($array as $y => $value) {   //$y是key，
@@ -63,6 +85,18 @@
  //             }
              
  //         traverse('F:\Program Files\wamp\www\ckplayer');
-$url = "http://www.bduw.com";
- $homepage = file_get_contents($url);
-print_r($homepage);
+
+
+
+//sql 注入，他们为什么都用这么一串?
+// echo (chr(95).chr(33).chr(64).chr(52).chr(100).chr(105).chr(108).chr(101).chr(109).chr(109).chr(97) );
+$arr = array();
+for($i=0;$i<10;$i++){
+    $arr[]  =   $i;
+}
+
+while (list($key) = each($arr))
+               {
+                    $arr[$key] = ($arr[$key])+1;
+               }
+var_dump($arr);

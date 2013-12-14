@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>答疑 app接口 文档</title>
+<style type="text/css"> 
+t {margin-left: 20px;}tt {margin-left: 40px;}ttt { margin-left: 60px;}tttt { margin-left: 80px;}ttttt {margin-left: 100px;}tttttt {  margin-left: 120px;}ttttttt {margin-left: 140px;}tttttttt {margin-left: 160px;}*{ margin:0; padding:0;}
+body { 1.8 Arial; }
+h1.tit-h1 { font-size:38px; text-align:center; margin:30px 0 15px; color:#f60;}
+.go-back{ text-align:center; border-top:1px dashed #ccc; padding:10px; margin-top:20px; font-size:40px;}
+.wrap{border:1px dashed #ccc; background:#f8f8f8; padding:20px;}
+
+.demo{height:1500px;}
+.float{width:480px; padding:10px; border:1px solid #ffecb0; background-color:#fffee0; -moz-box-shadow:1px 1px 2px rgba(0,0,0,.2); -webkit-box-shadow:1px 1px 2px rgba(0,0,0,.2); box-shadow:1px 1px 2px rgba(0,0,0,.2); position:absolute; right:10%; top:131px;}
+a{text-decoration:none;color:#000000;}
+hh{ font-size:larger;color:#ff0000;font-weight: 900;}
+.t_interface{color:#59FF44;}
+body{font-family:微软雅黑} 
+</style> 
+<script src="jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 class="tit-h1">答疑 app接口 文档</h1> 
+<div class="wrap">
+
+
+<a id="register"><hh>注册</hh>：apps/member/aq_sign_up</a><br>
+   <tt> email 必填</tt><br>
+   <tt> name 必填</tt><br>
+  <tt>  password 必填</tt><br>
+   <tt> phone_os // 'ios' or 'android'</tt><br>
+    返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data:</ttt><br>
+            <tttt>{</tttt><br>
+                <ttttt>"code":"1",</ttttt><br>
+                <ttttt>"msg":"注册成功"</ttttt><br>
+            <tttt>}</tttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-1","msg":"email格式不正确"}<br>
+{"code":"-2","msg":"该手机已被注册过"}<br>
+{"code":"-3","msg":"密码长度应为 6-20 位字符"}<br>
+{"code":"-4","msg":"手机验证码不正确"}<br>
+{"code":"-5","msg":"注册失败，服务忙"}<br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id="login"><hh>学生登录</hh>：apps/member/aq_login</a><br>
+   <tt> username   必填</tt><br>
+   <tt> password    必填</tt><br>
+    <tt>返回值：</tt><br>
+    <ttt>{</ttt><br>
+        <tttt>response_status: "ok",</tttt><br>
+        <tttt>response_data:</tttt><br>
+            <ttttt>{</ttttt><br>
+                <tttttt>"code":"1",</tttttt><br>
+                <tttttt>"user_id":"812800278",    //用户的 ID</tttttt><br>
+                <tttttt>"user_type":"student",    //用户的角色，student 或 teacher</tttttt><br>
+                <tttttt>"student_id":10001212,    //学号</tttttt><br>
+                <tttttt>"oauth":"0670c0e65a8c93436c0cdcf3e7076e19929cb8de"    //oauth</tttttt><br>
+            <ttttt>}</ttttt><br>
+    <ttt>}</ttt><br>
+<tt>response_data 其它返回值：</tt><br>
+<tt>{"code":"-1","msg":"帐号或密码不能为空"}</tt><br>
+<tt>{"code":"-2","msg":"用户名或密码错误"}</tt><br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id="t_login"><hh>老师登录</hh>：apps/member/t_login</a><br>
+   <tt> username   必填</tt><br>
+   <tt> password    必填</tt><br>
+    <tt>返回值：</tt><br>
+    <ttt>{</ttt><br>
+        <tttt>response_status: "ok",</tttt><br>
+        <tttt>response_data:</tttt><br>
+            <ttttt>{</ttttt><br>
+                <tttttt>"code":"1",</tttttt><br>
+                <tttttt>"subject": "1",</tttttt>//科目<br>
+                <tttttt>"grade_type": "3",</tttttt>//学段<br>
+                <tttttt>"name": "爱新觉罗",</tttttt><br>
+                <tttttt>"user_id":"812800278",    //用户的 ID</tttttt><br>
+                <tttttt>"user_type":"teacher",    //用户的角色，student 或 teacher</tttttt><br>
+                <tttttt>"oauth":"0670c0e65a8c93436c0cdcf3e7076e19929cb8de"    //oauth</tttttt><br>
+            <ttttt>}</ttttt><br>
+    <ttt>}</ttt><br>
+<tt>response_data 其它返回值：</tt><br>
+<tt>{"code":"-1","msg":"帐号或密码不能为空"}</tt><br>
+<tt>{"code":"-2","msg":"用户名或密码错误"}</tt><br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id='getverify'><hh>获取验证码</hh>: apps/member/aq_verify</a><br>
+<tt>phone 必填</tt><br>
+    返回值<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data:</ttt><br>
+        <tttt>{</tttt><br>
+            <ttttt>"code":"1",</ttttt><br>
+            <ttttt>"msg":"手机验证码发送成功"</ttttt><br>
+        <tttt>}</tttt><br>
+    <ttt>}</ttt><br>
+<tt>response_data 其它返回值：</tt><br>
+<tt>{"code":"-1","msg":"该手机号码格式不正确"} </tt><br>
+<tt>{"code":"-2","msg":"该手机号码已经注册过了"}</tt><br>
+<tt>{"code":"-3","msg":"手机验证码发送失败"}</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='getallsubject'><hh>获取所有的科目</hh>: apps/subject/all_subject</a><br>
+返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data:</ttt><br>
+            <tttt>[</tttt><br>
+                <ttttt>{</ttttt><br>
+                    <tttttt>"aq_subject_id":"2", </tttttt><br>
+                    <tttttt>"aq_subject_name":"数学",</tttttt><br>
+                    <tttttt>"count":"55"</tttttt><br>
+                    <tttttt>teacher_count: "1",</tttttt><br>
+                    <tttttt>grade: [</tttttt><br>
+                               <ttttttt>{</ttttttt><br>
+                                <tttttttt>aq_grade_id: "10",</tttttttt><br>
+                                <tttttttt>aq_grade_name: "4年级",</tttttttt><br>
+                                <tttttttt>grade_type: "1"</tttttttt><br>
+                                <ttttttt>},</ttttttt><br>
+                                <ttttttt>{</ttttttt><br>
+                                <tttttttt>aq_grade_id: "11",</tttttttt><br>
+                                <tttttttt>aq_grade_name: "5年级",</tttttttt><br>
+                                <tttttttt>grade_type: "1"</tttttttt><br>
+                                <ttttttt>},</ttttttt><br>
+                                <ttttttt>{</ttttttt><br>
+                                <tttttttt>aq_grade_id: "12",</tttttttt><br>
+                                <tttttttt>aq_grade_name: "6年级",</tttttttt><br>
+                                <tttttttt>grade_type: "1"</tttttttt><br>
+                                <ttttttt>}</ttttttt><br>
+                                <tttttt>]</tttttt><br>
+                <ttttt>},</ttttt><br>
+                <ttttt>{</ttttt><br>
+                    <tttttt>"aq_subject_id":"3",</tttttt><br>
+                    <tttttt>"aq_subject_name":"英语",</tttttt><br>
+                    <tttttt>"count":"55"</tttttt><br>
+                    <tttttt>teacher_count: "1",</tttttt><br>
+                    <tttttt>grade: [{..},{..},...]</tttttt><br>
+                <ttttt>},</ttttt><br>
+                <ttttt>{</ttttt><br>
+                    <tttttt>"aq_subject_id":"1",</tttttt><br>
+                    <tttttt>"aq_subject_name":"语文",</tttttt><br>
+                    <tttttt>"count":"55"</tttttt><br>
+                    <tttttt>teacher_count: "1",</tttttt><br>
+                    <tttttt>grade: [{..},{..},...]</tttttt><br>
+                <ttttt>}</ttttt><br>
+            <tttt>]</tttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-999","msg":"oauth 安全验证不正确，无法通过请求"}<br>
+{"code":"-998","msg":"请求次数过于频繁"}<br>
+------------------------------------------------------------------------------------------<br>
+<a id='getasubject'><hh>获取某科目的名称和其下的题目答疑数量</hh>: apps/subject/get_subject</a><br>
+<tt>aq_subject_id（必填） ：科目的 ID</tt><br>
+返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data:</ttt><br>
+        <ttt>{</ttt><br>
+            <tttt>"aq_subject_name":"化学",</tttt><br>
+            <tttt>"count":"4500"    //该科目下的答疑数量</tttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-1","msg":"未找到该科目相关信息"}<br>
+{"code":"-999","msg":"oauth 安全验证不正确，无法通过请求"}<br>
+{"code":"-998","msg":"请求次数过于频繁"}<br>
+------------------------------------------------------------------------------------------<br>
+<a id='getsubjectgrade'><hh>获取一个科目的所有年级</hh>: apps/subject/get_grades</a><br>
+<tt>aq_subject_id（必填） ：科目的 ID</tt><br>
+返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data:</ttt><br>
+        <ttt>[</ttt><br>
+            <tttt>{</tttt><br>
+                <ttttt>"aq_grade_id":"12",</ttttt><br>
+                <ttttt>"aq_grade_name":"小学 4-6 年级",</ttttt><br>
+            <tttt>},</tttt><br>
+            <tttt>{</tttt><br>
+                <ttttt>"aq_grade_id":"13",</ttttt><br>
+                <ttttt>"aq_grade_name":"7 年级",</ttttt><br>
+            <tttt>}</tttt><br>
+        <ttt>]</ttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-1","msg":"未找到该科目相关信息"}<br>
+{"code":"-999","msg":"oauth 安全验证不正确，无法通过请求"}<br>
+{"code":"-998","msg":"请求次数过于频繁"}    <br>
+------------------------------------------------------------------------------------------<br>
+<a id='getgradetype'><hh>获取小学/初中/高中的type</hh>：apps/subject/all_grade_type</a><br>
+aq_subject_id //选填，填的话就是获取该科下的<br>
+返回值<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: [</ttt><br>
+            <tttt>{</tttt><br>
+                <ttttt>grade_type_id: 1,</ttttt><br>
+                <ttttt>grade_type_name: "小学",</ttttt><br>
+                <ttttt>teacher_count: "2"</ttttt><br>
+                <ttttt>},</ttttt><br>
+                <ttttt>{</ttttt><br>
+                <ttttt>grade_type_id: 2,</ttttt><br>
+                <ttttt>grade_type_name: "初中",</ttttt><br>
+                <ttttt>teacher_count: "0"</ttttt><br>
+                <ttttt>},</ttttt><br>
+                <ttttt>{</ttttt><br>
+                <ttttt>grade_type_id: 3,</ttttt><br>
+                <ttttt>grade_type_name: "高中",</ttttt><br>
+                <ttttt>teacher_count: "3"</ttttt><br>
+            <tttt>}</tttt><br>
+        <ttt>]</ttt><br>
+    <tt>}</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='getpoint'><hh>获取一个科目下的所有考点</hh>: apps/subject/get_points</a><br>
+<tt>aq_grade_id（必填） ：科目的 ID</tt><br>
+返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok", </ttt><br>
+        <ttt>response_data:</ttt><br>
+        <ttt>[</ttt><br>
+            <tttt>{</tttt><br>
+               <ttttt>"aq_point_id":"12",</ttttt><br>
+                <ttttt>"aq_point_name":"一元二次方程",</ttttt><br>
+               <ttttt> "count":"1205"    //该知识点下的答疑数量</ttttt><br>
+            <tttt>},</tttt><br>
+            <tttt>{</tttt><br>
+                <ttttt>"aq_point_id":"13",</ttttt><br>
+                <ttttt>"aq_point_name":"三角函数",</ttttt><br>
+                <ttttt>"count":"1105"    //该知识点下的答疑数量</ttttt><br>
+            <tttt>}</tttt><br>
+        <ttt>]</ttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-1","msg":"未找到该科目相关信息"}<br>
+{"code":"-999","msg":"oauth 安全验证不正确，无法通过请求"}<br>
+{"code":"-998","msg":"请求次数过于频繁"}    <br>
+------------------------------------------------------------------------------------------<br>
+<a id='gettizipoint'><hh>获取知识点下的题目的组卷题目</hh>: apps/question/point</a><br>
+<tt>id // 知识点id</tt><br>
+<tt>pagesize </tt><br>
+<tt>page // 第几页</tt><br>
+返回值：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok", </ttt><br>
+        <ttt>response_data:</ttt><br>
+        <ttt>{</ttt><br>
+                        <ttttt>count: "2478",</ttttt><br>
+            <ttttt>question: [</ttttt><br>
+            <tttttt>{</tttttt><br>
+            <tttttt>id: "1023252",</tttttt><br>
+            <tttttt>body: 母亲，我是您10年来一直资助的那个孤儿请在横线上作一个动作和心理活动的片断描写。（10分）</tttttt><br>
+            <tttttt>analysis: 试题分析：通读此语段，放到文章段落中加以理解",</tttttt><br>
+            <tttttt>answer: 【答案】示例：这就十年来，给了我生命和捐助的父亲、母亲，你们的头上已布满白</tttttt><br>
+            <tttttt>},</tttttt><br>
+            <tttttt>{ ... }</tttttt><br>
+            <ttttt>]</ttttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+response_data 其它返回值：<br>
+{"code":"-1","msg":"未找到该科目相关信息"}<br>
+{"code":"-999","msg":"oauth 安全验证不正确，无法通过请求"}<br>
+{"code":"-998","msg":"请求次数过于频繁"}    <br>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
+ <br>
+<a id="ask"><hh>学生提问</hh>：apps/aq_question/ask</a><br>
+    <tt>subject_id  必填</tt><br>
+    <tt>user_id 必填</tt><br>
+    <tt>grade 必填</tt><br>
+    <tt>content</tt><br>
+    <tt>picture_urls //逗号隔开</tt><br>
+    <tt>reward</tt><br>
+    <tt>specific //为1的时候是指定老师解答，并且此时必须填teacher_id</tt><br>
+    <tt>teacher_id //specific==1时，此参数不能为0</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='uploadpic'><hh>上传图片用到的请求接口，返回存储后的url</hh>:apps/aq_image_upload</a><br>
+传入：image_bin <br>
+返回值：<br>
+    {<br>
+        response_status: "ok", <br>
+        response_data:<br>
+        {<br>
+            code:1,<br>
+            msg: 上传成功,<br>
+            img_path:'xxxxx.com/xxx/xxxx' // url <br>
+        }<br>
+    }<br>
+        response_data 其它返回值：<br>
+{"code":"-1","msg":"格式错误"}<br>
+{"code":"-2","msg":"文件过大"}<br>
+{"code":"-3","msg":"上传失败"}    <br>
+------------------------------------------------------------------------------------------<br>
+<a id="getaquestion"><hh>获取一个问题</hh>：apps/aq_question/get</a><br>
+    <tt>question_id 必填<br>
+ 返回数据:<br>
+     <tt>   {</tt><br>
+         <ttt>response_status: "ok",</ttt><br>
+         <ttt>response_data: {</ttt><br>
+                <tttt>user_id: "1", //学生id</tttt><br>
+                <tttt>point_ids: "9,6,3,1",</tttt><br>
+                <tttt>grade: "小学1-4年级数学", </tttt><br>
+                <tttt>content: "this is updated content", // 问题内容</tttt><br>
+                <tttt>picture_urls: "", </tttt><br>
+                <tttt>reward: "100",</tttt><br>
+                <tttt>type: "思路不清楚",</tttt><br>
+                <tttt>is_resolved: 1, //1 => '未认领',2 => '已认领', 3 => '已回答', 4 => '已评价'</tttt><br>
+                <tttt>publish_date: "1381374572",//发布问题的时间</tttt><br>
+                <tttt>start_date: "1381574658",//领取问题的时间</tttt><br>
+                <tttt>solved_sec: "0",//老师解决问题的耗时</tttt><br>
+                    <tttt>new_answer: "0", // 1是有新的 未读的答案 回复<</tttt>br> 
+                <tttt>subject: "数学", </tttt><br>
+                <tttt>teacher_id: "812800129",</tttt><br>
+                <tttt>teacher_name: "爱新觉罗.阿玛腻",</tttt><br>
+                <tttt>teacher_avatar: "baiud.com",</tttt><br>
+                <tttt>evaluate_content: "soooo good", //评价内容</tttt><br>
+                <tttt>evaluate_content_time: "1383048910",//评价时间</tttt><br>
+                <tttt>evaluate: "4", // 学生给老师的星星</tttt><br>
+                <tttt>all_answers: { //各种答案</tttt><br>
+                    <tttttt>audio_answer: [ ], //语音答案</tttttt><br>
+                    <tttttt>picture_answer: [ //图片答案</tttttt><br>
+                                        <ttttttt>{</ttttttt><br>
+                                            <tttttttt>id: "3",</tttttttt><br>
+                                            <tttttttt>pic_url: "www.google.com.au",</tttttttt><br>
+                                            <tttttttt>create_time: "1381925206"</tttttttt><br>
+                                        <ttttttt>},</ttttttt><br>
+                                        <ttttttt>{</ttttttt><br>
+                                            <tttttttt>id: "4",</tttttttt><br>
+                                            <tttttttt>pic_url: "xiami.com",</tttttttt><br>
+                                            <tttttttt>create_time: "1381925262"</tttttttt><br>
+                                        <ttttttt>}</ttttttt><br>
+                                    <tttttt>],</tttttt><br>
+                    <ttttt>text_answer: [ //文字答案</ttttt><br>
+                                    <tttttt>{</tttttt><br>
+                                        <ttttttt>id: "2",</ttttttt><br>
+                                        <ttttttt>content: "don't laugh ur ass off",</ttttttt><br>
+                                        <ttttttt>solved_date: "1381734404"</ttttttt><br>
+                                    <tttttt>}</tttttt><br>
+                                <ttttt>]</ttttt><br>
+                    <tttt>},</tttt><br>
+                        <tttt>id: "812800129",</tttt><br>
+<tttt>aq_teacher: "1",</tttt><br>
+<tttt>aq_online: "1",</tttt><br>
+<tttt>aq_account_balance: "101",</tttt><br>
+<tttt>aq_fields: "基础知识及语言表达",</tttt><br>
+<tttt>aq_credit_once: "15",</tttt><br>
+<tttt>aq_avg_sec: "197643563",</tttt><br>
+<tttt>aq_comment_count: "9",</tttt><br>
+<tttt>aq_revoke_times: "0",</tttt><br>
+<tttt>avatar_url: "http://www.dgtle.com/uc_server/data/avatar/000/04/61/44_avatar_middle.jpg",</tttt><br>
+<tttt>weight: "37",</tttt><br>
+<tttt>grade_type: "4年级语文",</tttt><br>
+<tttt>intro: "之前总是token验证失败，因为调用了两次tizi_ajax,导致失败token失效。",</tttt><br>
+<tttt>name: "爱新觉罗.阿玛腻",</tttt><br>
+<tttt>is_fast: false,</tttt><br>
+<tttt>level_counts: [</tttt><br>
+<tttt>{</tttt><br>
+<tttt>counts: "2",</tttt><br>
+<tttt>evaluate: "0",</tttt><br>
+<tttt>ratio: "22.22%"</tttt><br>
+<tttt>},</tttt><br>
+<tttt>{</tttt><br>
+<tttt>counts: "1",</tttt><br>
+<tttt>evaluate: "1",</tttt><br>
+<tttt>ratio: "11.11%"</tttt><br>
+<tttt>},</tttt><br>
+<tttt>{</tttt><br>
+<tttt>counts: "1",</tttt><br>
+<tttt>evaluate: "2",</tttt><br>
+<tttt>ratio: "11.11%"</tttt><br>
+<tttt>},</tttt><br>
+<tttt>{</tttt><br>
+<tttt>counts: "2",</tttt><br>
+<tttt>evaluate: "4",</tttt><br>
+<tttt>ratio: "22.22%"</tttt><br>
+<tttt>},</tttt><br>
+<tttt>{</tttt><br>
+<tttt>counts: "3",</tttt><br>
+<tttt>evaluate: "5",</tttt><br>
+<tttt>ratio: "33.33%"</tttt><br>
+<tttt>}</tttt><br>
+<tttt>]</tttt><br>
+                <ttt>}</ttt><br>
+    <tt>}</tt><br>
+<t></t><br>
+------------------------------------------------------------------------------------------<br>
+<a id="getquestionlist"><hh>获取问题列表</hh>：apps/aq_question/lists</a><br>
+        <tt>user_id //是1就去取自己的list</tt><br>
+        <tt>teacher_id //有这个就是该老师回答的问题</tt><br>
+        <tt>grade</tt><br>
+        <tt>is_resolved //可以是逗号串：1,2,3</tt><br>
+        <tt>new_answer //为1就是获取 有新回答的问题</tt><br>
+        <tt>offset</tt><br>
+        <tt>pagesize</tt><br>
+<br>
+ 返回数据:<br>
+        <tt>{</tt><br>
+            <ttt>response_status: "ok",</ttt><br>
+            <ttt>response_data: [</ttt><br>
+                <tttt>- {</tttt><br>
+                        <ttttt>id: "2",</ttttt><br>
+                        <ttttt>subject_id: "1",</ttttt><br>
+                        <ttttt>user_id: "1",</ttttt><br>
+                        <ttttt>teacher_id: "812800129",</ttttt><br>
+                        <ttttt>point_ids: "9,6,3,1",</ttttt><br>
+                        <ttttt>grade: "小学1-4年级数学",</ttttt><br>
+                        <ttttt>content: "this is updated content",</ttttt><br>
+                        <ttttt>picture_urls: "",</ttttt><br>
+                        <ttttt>reward: "100",</ttttt><br>
+                        <ttttt>type: "思路不清楚",</ttttt><br>
+                        <ttttt>is_resolved: "已回答",</ttttt><br>
+                        <ttttt>publish_date: "1381374572",</ttttt><br>
+                        <ttttt>start_date: "1381574658",</ttttt><br>
+                        <ttttt>solved_sec: "0",</ttttt><br>
+                        <ttttt>is_del: "0",</ttttt><br>
+                        <ttttt>difficulty: "0",</ttttt><br>
+                        <ttttt>specific: "0",</ttttt><br>
+                        <ttttt>new_answer: "0",</ttttt><br>
+                        <ttttt>subject: "语文"</ttttt><br>
+                        <ttttt>answer: [</ttttt><br>
+                                <tttttt>{</tttttt><br>
+                                    <ttttttt>id: "2",</ttttttt><br>
+                                    <ttttttt>aq_question_id: "2",</ttttttt><br>
+                                    <ttttttt>teacher_id: "812800129",</ttttttt><br>
+                                    <ttttttt>content: "don't laugh ur ass off",</ttttttt><br>
+                                    <ttttttt>content_type: "1",</ttttttt><br>
+                                    <ttttttt>audio_length: null,</ttttttt><br>
+                                    <ttttttt>create_time: "1381734404",</ttttttt><br>
+                                    <ttttttt>is_del: "0"</ttttttt><br>
+                                <tttttt>}</tttttt><br>
+                        <ttttt>]</ttttt><br>
+                    <tttt>},</tttt><br>
+                <tttt>- {</tttt><br>
+                        <ttttt>id: "3",</ttttt><br>
+                        <ttttt>subject_id: "1",</ttttt><br>
+                        <ttttt>user_id: "2",</ttttt><br>
+                        <ttttt>teacher_id: "812800129",</ttttt><br>
+                        <ttttt>point_ids: "1,2,3,5",</ttttt><br>
+                        <ttttt>grade: "小学1-4年级数学",</ttttt><br>
+                        <ttttt>content: "我有一个问题",</ttttt><br>
+                        <ttttt>picture_urls: "",</ttttt><br>
+                        <ttttt>reward: "100",</ttttt><br>
+                        <ttttt>type: "答案算不对",</ttttt><br>
+                        <ttttt>is_resolved: "已回答",</ttttt><br>
+                        <ttttt>publish_date: "1381374699",</ttttt><br>
+                        <ttttt>start_date: "1381992239",</ttttt><br>
+                        <ttttt>solved_sec: "0",</ttttt><br>
+                        <ttttt>is_del: "0",</ttttt><br>
+                        <ttttt>difficulty: "0",</ttttt><br>
+                        <ttttt>specific: "0"</ttttt><br>
+                        <ttttt>new_answer: "0",</ttttt><br>
+                        <ttttt>subject: "语文"</ttttt><br>
+                        <ttttt>answer: [</ttttt><br>
+                                <tttttt>{</tttttt><br>
+                                    <ttttttt>id: "2",</ttttttt><br>
+                                    <ttttttt>aq_question_id: "2",</ttttttt><br>
+                                    <ttttttt>teacher_id: "812800129",</ttttttt><br>
+                                    <ttttttt>content: "don't laugh ur ass off",</ttttttt><br>
+                                    <ttttttt>content_type: "1",</ttttttt><br>
+                                    <ttttttt>audio_length: null,</ttttttt><br>
+                                    <ttttttt>create_time: "1381734404",</ttttttt><br>
+                                    <ttttttt>is_del: "0"</ttttttt><br>
+                                <tttttt>}</tttttt><br>
+                        <ttttt>]</ttttt><br>
+                    <tttt>}</tttt><br>
+            <ttt>]</ttt><br>
+        <tt>}</tt><br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id='count_new_answer'><hh>获取有未读答案的题数</hh>apps/aq_question/count_new_answer</a><br>
+            返回：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+           <tttt> count: "12"</tttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id='has_answer_question'><hh>已经有回答的问题，（按照最新回答时间排序）</hh>apps/aq_question/has_answer_question</a><br>
+传入参数 和 返回值与  &lt;获取问题列表&gt; 接口 ：apps/aq_question/lists 一致。<br>
+------------------------------------------------------------------------------------------<br>
+<a id='questiontotal'><hh>获取问题的总数，包括已经被评价的总数</hh>:apps/aq_question/total</a><br>
+<tt>user_id //有这个就是该学生提的问题</tt><br>
+        <tt>teacher_id //有这个就是该老师回答的问题</tt><br>
+        <tt>grade</tt><br>
+        <tt>is_resolved</tt><br>
+            返回：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+           <tttt> total: "12",</tttt><br>
+            <tttt>comment_total: "1"</tttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+<br>
+------------------------------------------------------------------------------------------<br>
+<a id="editquestion"><hh>修改问题</hh>：apps/aq_question/edit</a><br>
+        question_id  必填<br>
+        role 必填 // 1 is teacher, 2 is student  <br>
+        user_id 必填<br>
+        content<br>
+        picture_urls<br>
+        point_ids<br>
+        difficulty // 老师修改难度, 传数字： 1（容易），2(较容易)，3（一般），4（较难），5（困难）<br>
+ ------------------------------------------------------------------------------------------<br>
+<a id="revoketeacherquestion"><hh>撤销老师回答问题的权利</hh>：apps/aq_question/cancel_taken</a><br>
+    question_id 必填<br>
+    teacher_id 必填<br>
+------------------------------------------------------------------------------------------<br>
+<a id="revokequestion"><hh>撤销已经提出，还未被认领的问题</hh>：apps/aq_question/revocation</a><br>
+    question_id 必填<br>
+    user_id 必填<br>
+<br>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
+<a id="getoneq"><hh>老师获取一个问题</hh>：apps/teacher/get_one_question</a><br>
+    <tt>id 问题id,   必填<br>
+ 返回数据:<br>
+     <tt>   {</tt><br>
+         <ttt>response_status: "ok",</ttt><br>
+         <ttt>response_data: {</ttt><br>
+                <tttt>user_id: "1", //学生id</tttt><br>
+                <tttt>point_ids:  "集合与常用逻辑用语,函数与导数",</tttt><br>
+                <tttt>grade: "小学1-4年级数学", </tttt><br>
+                <tttt>content: "this is updated content", // 问题内容</tttt><br>
+                <tttt>picture_urls: "", </tttt><br>
+                <tttt>reward: "100",</tttt><br>
+                <tttt>type: "思路不清楚",</tttt><br>
+                <tttt>is_resolved: 1, //1 => '未认领',2 => '已认领', 3 => '已回答', 4 => '已评价'</tttt><br>
+                <tttt>publish_date: "1381374572",//发布问题的时间</tttt><br>
+                <tttt>start_date: "1381574658",//领取问题的时间</tttt><br>
+                <tttt>solved_sec: "600",//老师解决问题的耗时</tttt><br>
+                <tttt>new_answer: "0", // 1是有新的 未读的答案 回复</tttt><br> 
+                <tttt>difficulty: "3",</tttt><br> 
+                <tttt>subject: "数学", </tttt><br>
+                <tttt>teacher_id: "812800129",</tttt><br>
+                <tttt>teacher_name: "爱新觉罗.阿玛腻",</tttt><br>
+                <tttt>teacher_avatar: "http://baiud.com",</tttt><br>
+                <tttt>evaluate_content: "soooo good", //评价内容</tttt><br>
+                <tttt>evaluate_content_time: "1383048910",//评价时间</tttt><br>
+                <tttt>evaluate: "4", // 学生给老师的星星</tttt><br>
+                <tttt>comment_is_read: "0",</tttt><br>
+                <tttt>id: 381,</tttt><br>
+                <tttt>answers: [</tttt><br>
+                        <tttttt>{</tttttt><br>
+                        <tttttt>id: "204",</tttttt><br>
+                        <tttttt>aq_question_id: "381",</tttttt><br>
+                        <tttttt>teacher_id: "812800138",</tttttt><br>
+                        <tttttt>content: " ",</tttttt><br>
+                        <tttttt>content_type: "1",</tttttt><br>
+                        <tttttt>audio_length: "0",</tttttt><br>
+                        <tttttt>create_time: "1384325277",</tttttt><br>
+                        <tttttt>is_del: "0"</tttttt><br>
+                        <tttttt>}</tttttt><br>
+                <tttt>]</tttt><br>
+                <tttt>point_names: "集合与常用逻辑用语,函数与导数"</tttt><br>
+                
+                <ttt>}</ttt><br>
+    <tt>}</tt><br>
+<t></t><br>
+------------------------------------------------------------------------------------------<br>
+<a id="teacher_question_list"><hh>老师获取 问题大厅、待回答列表</hh>：apps/teacher/lists</a><br>
+    <tt>oauth </tt><br>
+    <tt>time: 时间戳（初次为空,不为空带上最后一条记录的时间戳）//问题大厅要传这个</tt><br>
+    <tt>is_resolved：1 //1：未有人认领；2 已被认领，未解答；3已解答，未评价；4已评价</tt><br>
+    <tt>pagesize：10 // 不填的话，后台默认为10</tt><br>
+        返回数据：<br>
+        <tt>offset:当前页码 // 待回答列表、已回答列表要传这个</tt><br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: [  //如果没有数据，返回空数组<br>
+    <ttt>{<br>
+    <ttttt>id: "3",<br>
+    <ttttt>content: '问题描述'<br>
+    <ttttt>picture_urls: "",<br>
+    <ttttt>grade: 初中语文",<br>
+    <ttttt>publish_date: "1381374572",<br>
+    <ttt>}<br>
+    <ttt>]<br>
+<tt>}</tt><br>
+<br>
+<a id="teacher_take_q"><hh>老师认领问题</hh>：apps/teacher/take_question</a><br>
+    <tt>oauth </tt><br>
+    <tt>id:问题的id</tt><br>
+        返回数据：<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: [  </ttt><br>
+    <ttt>{</ttt><br>
+    <tttt>code: 0 失败or 1 成功</tttt><br>
+    <tttt>msg: 问题描述</tttt><br>
+    <tttt>point[ </tttt><br>
+    <tttt>{   </tttt><br>
+    <ttttt>  aq_point_id: //考点id</tttt><br>
+    <ttttt>  aq_point_name: //考点名称</tttt><br>
+    <tttt>}</tttt><br>
+    <tttt>]</tttt><br>
+    <ttt>}<br>
+    <ttt>]<br>
+<tt>}</tt><br>
+<br>
+<!-- <a id="getteacherlist"><hh>获取教师列表</hh>：apps/teacher/lists</a><br>
+    <tt>online  // 1.在线  2.不在线</tt><br>
+    <tt>evaluate </tt><br>
+    <tt>subject_id</tt><br>
+    <tt>grade_type // 1 小学 ； 2 初中 ；3 高中</tt><br>
+    <tt>offset</tt><br>
+    <tt>pagesize</tt><br>
+返回数据：<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: [</ttt><br>
+        <tttt>- {</tttt><br>
+            <ttttt>id: "812800129", //老师id</ttttt><br>
+            <ttttt>aq_teacher: "0", //老师是否有答疑权限，可以忽略这个字段</ttttt><br>
+            <ttttt>aq_online: "1", //是否在线</ttttt><br>
+            <ttttt>aq_account_balance: "100", //账户余额</ttttt><br>
+            <ttttt>aq_fields: "统计学", //擅长领域</ttttt><br>
+            <ttttt>aq_credit_once: "15", //指定老师回答时的价格</ttttt><br>
+            <ttttt>aq_avg_sec: "300", // 平均用时</ttttt><br>
+            <ttttt>aq_avg_evaluate: 4.8, //平均评价 </ttttt><br>
+            <ttttt>aq_answer_count: "2", // 该老师回答题数</ttttt><br>
+            <ttttt>aq_comment_count: "0", //得到的评价数</ttttt><br>
+            <ttttt>aq_revoke_times: "0", // 抢到的问题被回收答题权的次数</ttttt><br>
+            <ttttt>avatar_url: "", // 头像地址</ttttt><br>
+            <ttttt>school: "", // 学校名称</ttttt><br>
+            <ttttt>subject: "3", // 所属学科</ttttt><br>
+            <ttttt>weight: "0",//排序时根据此权重来排</ttttt><br>
+            <tttt>grade_type:'小学1-4年级数学',</tttt><br>
+            <tttt>intro: '简介',</tttt><br>
+            <ttttt>name: "爱新觉罗.阿玛腻" //老师姓名</ttttt><br>
+            <ttttt>is_fast: false //是否为 ‘快’</ttttt><br>
+            <tttt>},</tttt><br>
+        <tttt>- {</tttt><br>
+            <ttttt>id: "812800146",</ttttt><br>
+            <ttttt>aq_teacher: "0",</ttttt><br>
+            <ttttt>aq_online: "1",</ttttt><br>
+            <ttttt>aq_account_balance: "15",</ttttt><br>
+            <ttttt>aq_fields: "",</ttttt><br>
+            <ttttt>aq_credit_once: "15",</ttttt><br>
+            <ttttt>aq_avg_sec: "0",</ttttt><br>
+            <ttttt>aq_avg_evaluate: 0.12,</ttttt><br>
+            <ttttt>aq_answer_count: "0",</ttttt><br>
+            <ttttt>aq_comment_count: "0",</ttttt><br>
+            <ttttt>aq_revoke_times: "0",</ttttt><br>
+            <ttttt>avatar_url: "",</ttttt><br>
+            <ttttt>school: "",</ttttt><br>
+            <ttttt>subject: "3",</ttttt><br>
+            <ttttt>weight: "0", //排序时根据此权重来排</ttttt><br>
+            <tttt>grade_type:'小学1-4年级数学',</tttt><br>
+            <tttt>intro: '简介',</tttt><br>
+            <ttttt>name: "刘德华"</ttttt><br>
+            <ttttt>is_fast: false //是否为 ‘快’</ttttt><br>
+            <ttttt>}</ttttt><br>
+    <ttt>]</ttt><br>
+<tt>}    </tt><br> -->
+------------------------------------------------------------------------------------------<br>
+<a id="teachertotal"><hh>获取教师总数</hh>：apps/teacher/total</a><br>
+    <tt>online // 1.在线  2.不在线</tt><br>
+    <tt>evaluate </tt><br>
+    <tt>subject_id</tt><br>
+    <tt>grade_type // 1 小学 ； 2 初中 ；3 高中</tt><br>
+        返回数据：<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: {</ttt><br>
+        <tttt>online_total: "1",</tttt><br>
+        <tttt>offline_total: "5"</tttt><br>
+    <ttt>}</ttt><br>
+<tt>}</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='getateacher'><hh>获取某个教师</hh>：apps/teacher/get</a><br>
+    <tt>user_id 必填</tt><br>
+返回数据：<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: {</ttt><br>
+        <tttt>id: "812800129", //老师id</tttt><br>
+        <tttt>aq_teacher: "0",</tttt><br>
+        <tttt>aq_online: "1", //在线与否</tttt><br>
+        <tttt>aq_account_balance: "100",</tttt><br>
+        <tttt>aq_fields: "统计学",</tttt><br>
+        <tttt>aq_credit_once: "15",</tttt><br>
+        <tttt>aq_avg_sec: "300",//平均<</tttt>br> 
+        <tttt>aq_avg_evaluate: 4.8,</tttt><br>
+        <tttt>aq_answer_count: "7", //总 回答数</tttt><br>
+        <tttt>aq_comment_count: "3", //总 评价数</tttt><br>
+        <tttt>aq_revoke_times: "0", // 答题权 被 回收的次数 （抢到题目后，规定时间内不回答就被回收）</tttt><br>
+        <tttt>avatar_url: "baiud.com", // 头像</tttt><br>
+        <tttt>school: "北京海淀区永定路中学", </tttt><br>
+        <tttt>subject: "1",</tttt><br>
+        <tttt>weight: "39",</tttt><br>
+        <tttt>grade_type:'小学1-4年级数学',</tttt><br>
+        <tttt>intro: '简介',</tttt><br>
+        <tttt>name: "爱新觉罗.阿玛腻", //老师姓名</tttt><br>
+        <!-- <tttt>class_id: "7",<br></tttt> -->
+        <tttt>is_fast: false,</tttt><br>
+        <tttt>level_counts: [</tttt><br>
+        <ttttt>{</ttttt><br>
+            <tttttt>counts: "2",</tttttt><br>
+            <tttttt>evaluate: "0",</tttttt><br>
+            <tttttt>ratio: "66.67%"</tttttt><br>
+        <ttttt>},</ttttt><br>
+        <ttttt>{</ttttt><br>
+            <tttttt>counts: "2",</tttttt><br>
+            <tttttt>evaluate: "3",</tttttt><br>
+            <tttttt>ratio: "66.67%"</tttttt><br>
+        <ttttt>}</ttttt><br>
+        <tttt>],</tttt><br>
+        <tttt>school: "北京海淀区永定路中学" </tttt><br>
+        <tttt>},</tttt><br>
+    <tttt>}</tttt><br>
+}    <br>
+------------------------------------------------------------------------------------------<br>
+<a id='setf'><hh>设置某个教师擅长领域</hh>：apps/teacher/set_fields</a><br>
+    <tt>teacher_id 必填    </tt><br>
+    <tt>fields </tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='fav'><hh>收藏/取消收藏某个老师</hh>：apps/teacher/favor_teacher</a><br>
+    <tt>teacher_id 必填</tt><br>
+    <tt>user_id 必填</tt><br>
+    <tt>disfavor  填0就是收藏，传1就是取消收藏 </tt><br>
+<br>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
+<br>
+<a id='addanswer'><hh>老师提交图片、文字答案</hh>：apps/teacher/add_answer</a><br>
+    <tt>id 必填</tt><br>
+    <tt>url // 图片地址，url字符串，多个就用逗号隔开</tt><br>
+    <tt>pid //考点id字符串，多个就用逗号隔开 </tt><br>
+    <tt>diff //难度， 1（容易），2(较容易)，3（一般），4（较难），5（困难） </tt><br>
+    <tt>text_answer // 文字内容</tt><br>
+    成功返回：<br>
+    <tt>{<br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+                                <tttt>code:1,</tttt><br>
+                                <tttt>msg:'操作成功'</tttt><br>
+                                <ttt>}</ttt><br>
+    <tt>}<br>
+        <tt>{"code":"-2","msg":"请先登录"}</tt><br>
+<tt>{"code":"-3","msg":"没有输入任何答案"}</tt><br>
+<tt>{"code":"-4","msg":"无权回答该问题"}</tt><br>
+<tt>{"code":"-5","msg":"操作失败"}</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='read_audio'><hh>设置音频答案已读</hh>: apps/aq_answer/read_audio</a><br>
+<tt>audio_id , 答案id  ， 必填</tt><br>
+<tt>oauth ， 必填</tt><br>
+<tttt>{</tttt><br>
+<tttt>response_status: "error",</tttt><br>
+<tttt>response_error_code: -2,</tttt><br>
+<tttt>response_error_message: "操作失败"</tttt><br>
+<tttt>}</tttt><br>
+<tttt>{</tttt><br>
+<tttt>response_status: "ok",</tttt><br>
+<tttt>response_data: {</tttt><br>
+<ttttt>code: 1,</ttttt><br>
+<ttttt>msg: "操作成功"</ttttt><br>
+<tttt>}</tttt><br>
+<tttt>}</tttt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='addaudioanswer' ><hh>老师提交语音答案：apps/teacher/add_audio_answer</hh></a><br>
+    <tt>id 必填</tt><br>
+    <tt>url // 语音地址</tt><br>
+    <tt>audio_length</tt><br>
+    <tt>pid //考点id字符串，多个就用逗号隔开 </tt><br>
+    <tt>diff //难度， 1（容易），2(较容易)，3（一般），4（较难），5（困难） </tt><br>
+    成功返回：<br>
+    <tt>{<br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+                                <tttt>code:1,</tttt><br>
+                                <tttt>msg:'操作成功'</tttt><br>
+                                <ttt>}</ttt><br>
+    <tt>}<br>
+        <tt>{"code":"-2","msg":"请先登录"}</tt><br>
+<tt>{"code":"-3","msg":"没有输入任何答案"}</tt><br>
+<tt>{"code":"-4","msg":"无权回答该问题"}</tt><br>
+<tt>{"code":"-5","msg":"操作失败"}</tt><br>
+------------------------------------------------------------------------------------------<br>
+<a id='answerlist'><hh>某老师的答案列表</hh>：apps/aq_answer/lists</a><br>
+    <tt>teacher_id 必填</tt><br>
+    <tt>offset</tt><br>
+    <tt>pagesize</tt><br>
+返回数据：<br>
+<tt>{</tt><br>
+    <ttt>response_status: "ok",</ttt><br>
+    <ttt>response_data: [</ttt><br>
+        <tttt>- {</tttt><br>
+                <ttttt>id: "2",</ttttt><br>
+                <ttttt>aq_question_id: "2",</ttttt><br>
+                <ttttt>teacher_id: "812800129",</ttttt><br>
+                <ttttt>content: "don't laugh ur ass off",</ttttt><br>
+                <ttttt>content_type: "1", // 1.文字回答 2.音频回答 3.图片答案</ttttt><br>
+                <ttttt>solved_date: "1381734404",</ttttt><br>
+                <ttttt>evaluate: "4"</ttttt><br>
+            <ttttt>},</ttttt><br>
+        <tttt>- {</tttt><br>
+                <ttttt>id: "3",</ttttt><br>
+                <ttttt>aq_question_id: "3",</ttttt><br>
+                <ttttt>teacher_id: "812800129",</ttttt><br>
+                <ttttt>content: "http://m1.file.xiami.com/132/2132/11680/376420_24893_l.mp3",</ttttt><br>
+                <ttttt>content_type: "2", // 1.文字回答 2.音频回答 3.图片答案</ttttt><br>
+                <ttttt>solved_date: "1381994904",</ttttt><br>
+                <ttttt>evaluate: null</ttttt><br>
+            <ttttt>}</ttttt><br>
+    <ttt>]</ttt><br>
+}    <br>
+------------------------------------------------------------------------------<br>
+<a id='answertotal'><hh>老师回答的总数</hh>apps/aq_answer/total</a><br>
+<tt>teacher_id 必填<br>
+返回：<br>
+{<br>
+<tt>response_status: "ok",</tt><br>
+<tt>response_data: "4"</tt><br>
+}<br>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
+<a id='comment'><hh>对老师的回答作出评价</hh>：apps/aq_comment/add</a><br>
+    <tt>question_id 必填</tt><br>
+    <tt>user_id 必填</tt><br>
+    <tt>teacher_id 必填</tt><br>
+    <tt>content</tt><br>
+    <tt>evaluate</tt><br>
+------------------------------------------------------------------------------<br>
+<a id='commentlist'><hh>获取某个老师的评价列表</hh>：apps/aq_comment/teacher_lists</a><br>
+     <tt>teacher_id 必填</tt><br>
+     <tt>offset</tt><br>
+     <tt>pagesize</tt><br>
+返回数据：<br>
+ <tt>{</tt><br>
+     <ttt>response_status: "ok",</ttt><br>
+     <ttt>response_data: [</ttt><br>
+        <tttt>- {</tttt><br>
+                <tttttt>id: "2",</tttttt><br>
+                <tttttt>user_id: "1",</tttttt><br>
+                <tttttt>teacher_id: "812800129",</tttttt><br>
+                <tttttt>content: "soooo good",</tttttt><br>
+                <tttttt>evaluate: "4",</tttttt><br>
+                <tttttt>dateline: "1381741813"</tttttt><br>
+            <ttttt>}</ttttt><br>
+    <ttt>]</ttt><br>
+}</tt><br>
+<br>
+------------------------------------------------------------------------------<br>
+<a id='commenttotal'><hh>评价总数，包含各评价等级总数</hh>: apps/aq_comment/total</a><br>
+<tt>teacher_id 必填</tt><br>
+    返回数据：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+            <tttt>total: "2",</tttt><br>
+            <tttt>level_counts: [</tttt><br>
+                <ttttt>{</ttttt><br>
+                    <tttttt>counts: "1",</tttttt><br>
+                    <tttttt>evaluate: "4",</tttttt><br>
+                    <tttttt>ratio: "50%"</tttttt><br>
+                <ttttt>},</ttttt><br>
+                <ttttt>{</ttttt><br>
+                    <tttttt>counts: "1",</tttttt><br>
+                    <tttttt>evaluate: "5",</tttttt><br>
+                    <tttttt>ratio: "50%"</tttttt><br>
+                <ttttt>}</ttttt><br>
+            <tttt>]</tttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+<br>
+------------------------------------------------------------------------------<br>
+<a id='getacmt'><hh>获取某个评价</hh>: apps/aq_comment/get</a><br>
+<tt>question_id 必填</tt><br>
+返回数据：<br>
+    <tt>{</tt><br>
+        <ttt>response_status: "ok",</ttt><br>
+        <ttt>response_data: {</ttt><br>
+            <ttttt>id: "2",</ttttt><br>
+            <ttttt>user_id: "1",</ttttt><br>
+            <ttttt>teacher_id: "812800129",</ttttt><br>
+            <ttttt>content: "hola,adios amigo",</ttttt><br>
+            <ttttt>evaluate: "3",</ttttt><br>
+            <ttttt>dateline: "1382160127",</ttttt><br>
+            <ttttt>is_read: "0"</ttttt><br>
+        <ttt>}</ttt><br>
+    <tt>}</tt><br>
+------------------------------------------------------------------------------<br>
+<a id='checkupdate'><hh>检查版本更新</hh>: apps/aq_app_version/check_update</a><br>
+<tt> ver //必填 客户端当前版本号</tt><br>
+<tt> phone_os //必填 手机系统,'ios' / 'android' </tt><br>
+成功：<br>
+<tt>{</tt><br>
+<ttt>response_status: "ok",</ttt><br>
+<ttt>response_data: {</ttt><br>
+<tttt>id: "1",</tttt><br>
+<tttt>phone_os: "21",</tttt><br>
+<tttt>suggestion: 1,</tttt> // 1 建议更新 ， 2 强制更新<br>
+<tttt>ver_num: "1",</tttt><br>
+<tttt>ver_str: "1.0.0",</tttt><br>
+<tttt>url: "tizi.com",</tttt><br>
+<tttt>intro: "no intro."</tttt><br>
+<ttt>}</ttt><br>
+<tt>}</tt><br>
+    失败：<br>
+    <tt>{</tt><br>
+<ttt>response_status: "error",</ttt><br>
+<ttt>response_error_code: -1,</ttt><br>
+<ttt>response_error_message: "没有可更新版本"</ttt><br>
+<tt>}</tt><br>
+------------------------------------------------------------------------------<br>
+<br>
+<br><hh> EOF </hh>
+<div class="demo"></div>
+<div class="float" id="float" style="height:600px;overflow-y:scroll"  >
+    <hh>member</hh><br>
+<a href="dayi.html#register">注册:apps/member/aq_sign_up</a><br>
+<a href='dayi.html#login'>学生登录：apps/member/aq_login</a><br>
+<a href='dayi.html#t_login' class='t_interface'>老师登录：apps/member/t_login</a><br>
+<a href='dayi.html#getverify'>获取验证码: apps/member/aq_verify</a><br>
+
+<hh>科目</hh><br>
+<a href='dayi.html#getallsubject'>获取所有的科目: apps/subject/all_subject</a><br>
+<a href='dayi.html#getasubject'>获取某科目的名称和其下的题目答疑数量: apps/subject/get_subject</a><br>
+<a href='dayi.html#getsubjectgrade'>获取一个科目的所有年级: apps/subject/get_grades</a><br>
+<a href='dayi.html#getgradetype'>获取小学/初中/高中的type：apps/subject/all_grade_type</a><br>
+<a href='dayi.html#getpoint'>获取一个科目下的所有考点: apps/subject/get_points</a><br>
+<hh>问题</hh><br>
+<a href="dayi.html#gettizipoint">获取知识点下的题目的组卷(梯子)题目: apps/question/point </a><br>
+<a href='dayi.html#ask'>学生提问：apps/aq_question/ask</a><br>
+<a href='dayi.html#uploadpic'>上传图片：apps/aq_image_upload</a><br>
+<a href='dayi.html#getaquestion'>获取一个问题：apps/aq_question/get</a><br>
+<a href='dayi.html#getquestionlist'>获取问题列表：apps/aq_question/lists</a><br>
+<a href='dayi.html#count_new_answer'>获取有未读答案的题数: apps/aq_question/count_new_answer</a><br>
+<a href='dayi.html#has_answer_question'>已经有回答的问题:apps/aq_question/has_answer_question</a><br>
+<a href='dayi.html#questiontotal'>获取问题的总数，包括已经被评价的总数:apps/aq_question/total</a><br>
+<a href='dayi.html#editquestion'>修改问题：apps/aq_question/edit</a><br>
+<a href='dayi.html#revoketeacherquestion'>撤销老师回答问题的权利：apps/aq_question/cancel_taken</a><br>
+<a href='dayi.html#revokequestion'>撤销已经提出，还未被认领的问题：apps/aq_question/revocation</a><br>
+<hh>教师</hh><br>
+<a href='dayi.html#getoneq' class='t_interface'>老师获取问题详情：apps/teacher/get_one_question</a><br>
+<a href='dayi.html#teacher_question_list' class='t_interface'>老师获取 问题大厅、待回答列表：apps/teacher/lists</a><br>
+<a href='dayi.html#teacher_take_q' class='t_interface'>老师认领问题：apps/teacher/take_question</a><br>
+<!-- <a href='dayi.html#getteacherlist'>获取教师列表：apps/teacher/lists</a><br> -->
+<a href='dayi.html#teachertotal'>教师总数: apps/teacher/total </a><br>
+<a href='dayi.html#getateacher'>获取某个教师：apps/teacher/get</a><br>
+<a href='dayi.html#setf'>设置某个教师擅长领域：apps/teacher/set_fields</a><br>
+<a href='dayi.html#fav'>收藏/取消收藏某个老师：apps/teacher/favor_teacher</a><br>
+<hh>解答/答案</hh><br>
+<a href='dayi.html#addanswer' class='t_interface'>老师提交图片、文字答案：apps/teacher/add_answer</a><br>
+<a href='dayi.html#read_audio' class='t_interface'> 设置音频答案已读 : apps/aq_answer/read_audio</a><br>
+<a href='dayi.html#addaudioanswer' class='t_interface'>老师提交语音答案：apps/teacher/add_audio_answer</a><br>
+<a href='dayi.html#answerlist'>某老师的答案列表：apps/aq_answer/lists</a><br>
+<a href='dayi.html#answertotal'>某老师回答的总数: apps/aq_answer/total</a><br>
+<hh>评价</hh><br>
+<a href='dayi.html#comment'>对老师的回答作出评价：apps/aq_comment/add</a><br>
+<a href='dayi.html#commentlist'>获取某个老师的评价列表：apps/aq_comment/teacher_lists </a><br>
+<a href='dayi.html#commenttotal'>某老师获得评价的总数，包含各评价等级总数: apps/aq_comment/total</a><br>
+<a href='dayi.html#getacmt'>获取某个评价: apps/aq_comment/get</a><br>
+<hh>更新</hh><br>
+<a href='dayi.html#checkupdate'>检查更新:apps/aq_app_version/check_update</a><br>
+</div>
+<script type="text/javascript">
+$.fn.smartFloat = function() {
+	var position = function(element) {
+		var top = element.position().top, pos = element.css("position"); //pos = absolute
+		$(window).scroll(function() {
+			var scrolls = $(this).scrollTop();
+			if (scrolls > top) {
+				if (window.XMLHttpRequest) {
+					element.css({
+						position: "fixed",
+						top: 0
+					});	
+				} else {
+					element.css({
+						top: scrolls
+					});	
+				}
+			}else {
+				element.css({
+					position: pos,
+					top: top
+				});	
+			}
+		});
+};
+	return $(this).each(function() {
+		position($(this));						 
+	});
+};
+//绑定
+$("#float").smartFloat();
+</script>
+</div>
+</body> 
+</html>
