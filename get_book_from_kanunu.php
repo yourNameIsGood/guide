@@ -25,7 +25,12 @@ for($i=$start;$i<=$end;$i++){
     echo '<br>';
 }
 
-//editing source html code from this page, deleting images and tags you don't need for reading;
+//editing source html code from this page, deleting images and tags you don't need for reading  and <meta charset='utf-8'/>; 
 //use wkhtmltopdf to make the book real.
 
 //2014/6/14 Q: font size in the pdf is too small to read
+/**
+<style type="text/css">
+p { font-size:38px;  }  //38 px is perfect for reading Chinese pdf on tablet
+</style>
+**/
