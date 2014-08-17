@@ -50,7 +50,7 @@ class qiniu{
         echo ($return);die;
     }
 
-
+ 
 }
 
 $qn = new qiniu();
