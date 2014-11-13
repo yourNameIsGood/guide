@@ -6,10 +6,10 @@ require_once("io.php");
 require_once("fop.php"); // file operation
 
 class qiniu{
-    private $bucket = 'crmwaijiao';
+    private $bucket = 'crmwao';
     private $domain = '';
-    private $secretKey = '9p22wIJcEPg3vXf2LmvOfAG8sEXoE0GbsI3Hzlq2';
-    private $accessKey = '9bCt2CbRL9H0CZ8S4NGzafglPibha9pT-0wdHgLB';
+    private $secretKey = 'IJcEPg3vXf2LmvOfAG8sEXoE0GbsI3Hzlq2';
+    private $accessKey = '-0wdHgLB';
 
     function __construct(){
         $this->domain = "{$this->bucket}.qiniudn.com";
