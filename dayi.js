@@ -16,3 +16,15 @@ Mousetrap.bind("k", function() {
     var n = window.pageYOffset - 20;
     $.scrollTo(n, 10);
 });
+Mousetrap.bind("ctrl+b", function() {
+    var n = window.pageYOffset - 200;
+    $.scrollTo(n, 10);
+});
+Mousetrap.bind("g g", function() {
+    var n = window.pageYOffset - 999999200;
+    $.scrollTo(n, 10);
+});
+Mousetrap.bind("shift+g", function() {
+    var n = window.pageYOffset + 99999999;
+    $.scrollTo(n, 10);
+});
