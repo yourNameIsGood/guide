@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import os
 
-
+pwd = 'hahaha'
 
 maillist = [
 "keviiiooo1@163.com",
@@ -106,7 +106,7 @@ for mail in maillist:
      elem.send_keys(mail)
 
      elem = browser.find_element_by_id("password") # Find the query box
-     elem.send_keys("woshitiancai" + Keys.RETURN)
+     elem.send_keys(pwd + Keys.RETURN)
 
      #### login is done ####
 
