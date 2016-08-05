@@ -53,9 +53,9 @@ titlebar(0);
 EOT;
 $reload = "<script>setTimeout(function(){window.location.reload();}, 500);</script>";
 $not_title = '<script> document.title = "searching '. $boom .'"</script>';
-		$copy = "<br> 林臻 林臻 林臻林臻林臻 报名 。。。。字数字数 ";
-		if(strpos($data,$boom)!==false  ){
-				echo '<a href="http://tongxuehui.youku.com/forum.php?mod=forumdisplay&fid=88"><h1 style="color:red">GO GO GO !!!!!</h1></a>'.$copy.$title.$reload;
-		}else{
-				echo date('H:i:s',time()). '<h5 style = "color:blue"> keep on waiting ... </h5>'.$reload.$not_title;die;
-		}
+$copy = "<br> 林臻 林臻 林臻林臻林臻 报名 。。。。字数字数 ";
+if(strpos($data,$boom)!==false  ){
+        echo '<a href="http://tongxuehui.youku.com/forum.php?mod=forumdisplay&fid=88"><h1 style="color:red">GO GO GO !!!!!</h1></a>'.$copy.$title.$reload;
+}else{
+        echo date('H:i:s',time()). '<h5 style = "color:blue"> keep on waiting ... </h5>'.$reload.$not_title;die;
+}
