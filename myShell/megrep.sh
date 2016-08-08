@@ -1,1 +1,1 @@
-grep -nrIis $1 . --color
+grep -nrIis "$1" . --color
