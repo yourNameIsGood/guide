@@ -145,8 +145,18 @@ alias findnotrdos='find [^R]* | xargs grep  -l'
 alias megrep='sh ~/work/code/guide/myShell/megrep.sh'
 alias psef='sh ~/work/code/guide/myShell/psef.sh'
 
-# config on this server
+# commit diary
+alias commitdiary='rm /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/commit_and_push.sh'
 alias vimdiary='vim ~/work/diary/docs/diary.md'
+
+# ssh without typing pwd
+alias ssh77='sshpass -p jesse ssh jesse@10.6.8.77 '
+alias ssh72='sshpass -p jesse ssh jesse@10.6.8.72 '
+
+
+#########################
+# CONFIG ON THIS SERVER #
+#########################
 alias chinese='ibus-daemon -drx'
 alias tow='cd /home/randylin/work/'
 alias towork='cd /home/randylin/work/'
@@ -164,15 +174,10 @@ export NVM_DIR="/home/randylin/.nvm"
 # open robomongo
 alias robomongo='/home/randylin/下载/robomongo/bin/robomongo'
 
-# commit diary
-alias commitdiary='sh /home/randylin/work/code/guide/myShell/commit_and_push.sh'
-
-alias ssh77='sshpass -p jesse ssh jesse@10.6.8.77 '
-alias ssh72='sshpass -p jesse ssh jesse@10.6.8.72 '
-
 #data api related
 alias startdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh start'
 alias stopdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh stop'
 
 #alias runcron='php crontab.php backup_dataapi/starttime/123/endtime/544/interval/10min'
-alias runcron='php crontab.php backup_dataapi/interval/10min'
+#alias runcron='php crontab.php backup_dataapi/interval/1min'
+alias runcron='php crontab.php backup_dataapi/starttime/1471248000/endtime/1471248900/interval/1min'
