@@ -10,8 +10,8 @@ set nu
 set hlsearch
 
 map <F2> : Flisttoggle <CR>
-map <c-k> [{
-map <c-l> ]}
+map <c-n> [{
+map <c-m> ]}
 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -20,4 +20,5 @@ map <C-l> <C-W>l
 
 let @m = "oecho '<PRE>';var_dump($s);die;Ifss"
 let @l = "ofile_put_contents(dirname(__FILE__).'/'.$file,$content,FILE_APPEND|LOCK_EX);"
-let @p = ":r !datakbeo"
+let @p = ":r !dateI### okb"
+let @d = ":r !date +%Y/%m/%d\ %H:%M"
