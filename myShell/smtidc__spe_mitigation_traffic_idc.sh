@@ -14,9 +14,9 @@ api=spe_mitigation_traffic_idc
 cd ~/work/code/soc_portal/soc_portal/trunk/www
 php crontab.php backup_dataapi/api/${api}/starttime/${st}/endtime/${et}/interval/${interval} && sleep 1  # get all the data from data-api and write it into mongodb
 # query one data from mongodb
-php crontab.php test_cache_backup/api/${api}/data_origin/cloud/spe_gid/5/starttime/${st}/endtime/${et}/interval/${interval}  > ${fpath}cache.json && python -m json.tool ${fpath}cache.json > ${fpath}2 
+php crontab.php test_cache_backup/api/${api}/idc/bj/spe_gid/5/starttime/${st}/endtime/${et}/interval/${interval}  > ${fpath}cache.json && python -m json.tool ${fpath}cache.json > ${fpath}2 
 # query one data from data-api
-curl http://logapi.intra.nexqloud.net:8002/webapi/ -d '''{ "jsonrpc": "2.0", "method": "'''${api}'''", "params": ["5","", "cloud", '''${st}''','''${et}''', "'''${interval}'''"], "id": "aSUjSDRsmws6Fju1"}''' > ${fpath}api.json && sleep 1 && python -m json.tool ${fpath}api.json > ${fpath}1
+curl http://logapi.intra.nexqloud.net:8002/webapi/ -d '''{ "jsonrpc": "2.0", "method": "'''${api}'''", "params": ["5","bj", '''${st}''','''${et}''', "'''${interval}'''"], "id": "aSUjSDRsmws6Fju1"}''' > ${fpath}api.json && sleep 1 && python -m json.tool ${fpath}api.json > ${fpath}1
 # get rid of .0 in return of data-api
 sed -i 's/\.0//' ${fpath}1
 vimdiff ${fpath}1 ${fpath}2 
