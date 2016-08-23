@@ -9,7 +9,7 @@ et=1470885996
 #et=1470920000
 
 interval=1min
-api=spe_mitigation_traffic
+api=spe_mitigation_traffic_idc
 
 cd ~/work/code/soc_portal/soc_portal/trunk/www
 php crontab.php backup_dataapi/api/${api}/starttime/${st}/endtime/${et}/interval/${interval} && sleep 1  # get all the data from data-api and write it into mongodb
