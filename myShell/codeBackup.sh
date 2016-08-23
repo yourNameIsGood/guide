@@ -11,3 +11,4 @@ cp -rf Model ~/work/diary/backup/ng/
 #d=$(date +%F)
 cp -f ~/.bashrc ~/work/diary/backup/ng/.bashrc.from.NexusGuard
 
+sh /home/randylin/work/code/guide/myShell/commit_and_push.sh
