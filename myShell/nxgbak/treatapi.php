@@ -1,6 +1,6 @@
 <?PHP
 
-$data  =  file_get_contents("/tmp/api.json");
+$data  =  file_get_contents("/tmp/1");
 
 $data = json_decode($data, true);
 
@@ -11,7 +11,4 @@ $new = $data['result'];
 
 $newjson = json_encode($new);
 
-file_put_contents('/tmp/php_treat_api.json',$newjson);
-
-//system("echo \"{$newjson}\" > /tmp/php_treat_api.json ");
-//system("echo {$newjson} ");
+file_put_contents('/tmp/1',$newjson);
