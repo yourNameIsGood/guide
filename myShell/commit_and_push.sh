@@ -1,8 +1,8 @@
 #! /bin/bash
-cd /home/randylin/work/diary
+#cd /home/randylin/work/diary
 
-git fetch && sleep 20
-git merge origin/master && sleep 20
+git fetch && sleep 8
+git merge origin/master && sleep 3
 
 git add . 
 msg="$1"
