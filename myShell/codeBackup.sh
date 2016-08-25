@@ -10,9 +10,9 @@ sh /home/randylin/work/code/guide/myShell/commit_and_push.sh "$1"
 
 ##############################################
 # backup some config in Nexusguard
-cp -f ~/.bashrc ~/work/code/guide/myShell/nxgbak/.bashrc
-cp -f ~/.vimrc ~/work/code/guide/myShell/nxgbak/.vimrc
-cp -f ~/.tmux.conf ~/work/code/guide/myShell/nxgbak/.tmux.conf
-
-cd ~/work/code/guide/
-sh /home/randylin/work/code/guide/myShell/commit_and_push.sh "$1"
+#cp -f ~/.bashrc ~/work/code/guide/myShell/nxgbak/.bashrc
+#cp -f ~/.vimrc ~/work/code/guide/myShell/nxgbak/.vimrc
+#cp -f ~/.tmux.conf ~/work/code/guide/myShell/nxgbak/.tmux.conf
+#
+#cd ~/work/code/guide/
+#sh /home/randylin/work/code/guide/myShell/commit_and_push.sh "$1"
