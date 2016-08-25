@@ -163,7 +163,6 @@ alias vimdiary='vim ~/work/diary/docs/diary.md'
 alias ssh77='sshpass -p jesse ssh jesse@10.6.8.77 '
 alias ssh72='sshpass -p jesse ssh jesse@10.6.8.72 '
 
-
 #########################
 # CONFIG ON THIS SERVER #
 #########################
