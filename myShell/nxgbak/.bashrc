@@ -126,7 +126,6 @@ alias lla='ll -A'
 alias llt='ls -lt'
 alias lll='ll'
 alias l='ll'
-# alias toapi='cd /home/linzhen/ykworkflow/ykwf/app/Userlive/API'
 alias zz='export LANG=zh_CN.UTF-8'
 alias ..='cd ..'
 alias cd=mycd
@@ -135,6 +134,7 @@ alias vimbashrc='vi ~/.bashrc'
 alias bashup='. ~/.bashrc'
 alias bbb='bashup'
 
+# git shortcuts
 alias gs='git status'
 alias ga='git add .'
 alias gb='git branch'
@@ -154,8 +154,9 @@ alias jsonformat='python -m json.tool '
 alias dstcp='dstat -cdlmnpsy --tcp'
 alias tm='tmux'
 
-# commit diary
-alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/commit_and_push.sh'
+# commit diary and backup code
+alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/codeBackup.sh'
+alias commitbackup='commitdiary'
 alias vimdiary='vim ~/work/diary/docs/diary.md'
 
 # ssh without typing pwd
