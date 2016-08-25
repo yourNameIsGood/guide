@@ -11,4 +11,7 @@ $new = $data['result'];
 
 $newjson = json_encode($new);
 
-system("echo \"$newjson\" > /tmp/php_treat_api.json ");
+file_put_contents('/tmp/php_treat_api.json',$newjson);
+
+//system("echo \"{$newjson}\" > /tmp/php_treat_api.json ");
+//system("echo {$newjson} ");
