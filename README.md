@@ -1,4 +1,1 @@
-guide
-=====
-
-my guide dir
+DESCRIPTION
