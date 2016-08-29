@@ -1,5 +1,9 @@
 # download images
 replace_data-src_with_src_then_download_img.php
+# 用 curl download
+myShell/download_pic_with_curl.sh
+# 用 wget download
+myShell/download_pic_with_wget.sh
 
 # 遍历文件夹图片名字，生成一个html
 myShell/mkhtml.py
