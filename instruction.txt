@@ -1,9 +1,0 @@
-post.php 用curl测试app接口；
-
-myredis.php  简单的php使用Redis的程序
-
-dateCalc.php  计算两个日期的相差的天数
-
-copy.php  学习浅复制（测试浅复制）
-
-arrMulSort.php  通过二维数组中的一个字段排序

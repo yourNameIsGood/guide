@@ -1,0 +1,47 @@
+# download images
+replace_data-src_with_src_then_download_img.php
+
+# 遍历文件夹图片名字，生成一个html
+myShell/mkhtml.py
+
+# 用python下载某一集漫画
+myShell/python_get_comic.py
+
+# nexus work related
+smt_........... # spe_mitigation_traffic
+
+# php 读入 json 文件 处理字段 再 生成新结果
+myShell/nxgbak/treatapi.php
+
+# coding 帐号和每天要作的三个任务
+accounts.sh
+
+# 备份代码
+myShell/codeBackup.sh
+myShell/commit_and_push.sh
+
+# shell 循环实例
+myShell/loop.sh
+
+# 长轮训 服务端
+longPolling.php
+
+# 从 kanunu 八 书下来
+get_book_from_kanunu.php
+
+# selenium python
+everdayTaskAtCoding.py
+createTaskCodingDotNet
+
+# 豆果重用cookie刷量
+douguo.php
+
+# 计算日期差
+dateCalc.php
+
+# 轮训页面变化，生成动态title，提醒( better with chrome-extension )
+badminton.php
+
+# 刷51cto阅读量
+51cto.php
+
