@@ -156,7 +156,6 @@ alias tm='tmux'
 
 # commit diary and backup code
 alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/codeBackup.sh'
-alias commitbackup='commitdiary'
 alias vimdiary='vim ~/work/diary/docs/diary.md'
 
 # ssh without typing pwd

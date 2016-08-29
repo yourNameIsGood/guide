@@ -8,6 +8,7 @@ inoremap {<CR> {<CR>}<Esc>ko
 set encoding=UTF-8 
 set nu
 set hlsearch
+set ic
 
 map <F2> : Flisttoggle <CR>
 map <c-n> [{
