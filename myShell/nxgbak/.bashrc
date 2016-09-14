@@ -191,5 +191,5 @@ alias rrr='php crontab.php backup_dataapi/starttime/1470882396/endtime/147088599
 alias run10min='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/10min'
 alias run1hour='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/1hour'
 alias rrrr='run10min'
-alias testcachebackup='php crontab.php test_cache_backup/api/spe_netflow_overview/moid/10/spe_gid/5/starttime/1470882396/endtime/1470885996/interval/1min'
+alias testcachebackup='php crontab.php test_cache_backup/api/spe_netflow_overview/moid/c9190cfb/spe_gid/10/starttime/1470882396/endtime/1470885996/interval/1min'
 alias delcache='php crontab.php routine_del_cache_api'
