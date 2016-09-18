@@ -20,7 +20,7 @@ php crontab.php backup_dataapi/starttime/${st}/endtime/${et}/interval/${interval
 php crontab.php test_cache_backup/api/${api}/moid/${moid}/spe_gid/10/starttime/${st}/endtime/${et}/interval/${interval}  > ${fp}cache.json && python -m json.tool ${fp}cache.json > ${fp}2 
 
 # query one data from data-api
-curl http://logapi.intra.nexqloud.net:8002/webapi/ -d '''{ "jsonrpc": "2.0", "method": "'''${api}'''", "params": ["'''${moid}'''","10","", "cloud", '''${st}''','''${et}''', "'''${interval}'''"], "id": "aSUjSDRsmws6Fju1"}''' > ${fp}api.json && sleep 1 && python -m json.tool ${fp}api.json > ${fp}1
+curl http://logapi.intra.nexqloud.net:8002/webapi/ -d '''{ "jsonrpc": "2.0", "method": "'''${api}'''", "params": ["'''${moid}'''","10", '''${st}''','''${et}''', "'''${interval}'''"], "id": "aSUjSDRsmws6Fju1"}''' > ${fp}api.json && sleep 1 && python -m json.tool ${fp}api.json > ${fp}1
 # get rid of .0 in return of data-api
 sed -i 's/\.0//' ${fp}1
 php ~/work/code/guide/myShell/nxgbak/treatapi.php && python -m json.tool ${fp}1 > ${fp}jsontmp && cat ${fp}jsontmp > ${fp}1
