@@ -185,6 +185,7 @@ alias robomongo='/home/randylin/下载/robomongo/bin/robomongo &'
 #data api related
 alias startdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh start'
 alias stopdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh stop'
+alias restartapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh stop'
 
 # soc portal related
 alias rrr='php crontab.php backup_dataapi/apis/2/starttime/1470882396/endtime/1470885996/interval/1hour'
