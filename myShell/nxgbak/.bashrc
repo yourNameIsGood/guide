@@ -176,6 +176,9 @@ alias tomongo='cd /usr/local/mongodb/bin'
 alias todataapi='cd ~/work/code/data_api/trunk/l7datawebapi'
 alias tosocportal='cd ~/work/code/soc_portal/soc_portal/trunk/App'
 
+# screen shot
+alias ss='gnome-screenshot -ac'
+
 export NVM_DIR="/home/randylin/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
