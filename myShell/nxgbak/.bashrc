@@ -191,7 +191,7 @@ alias stopdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh stop'
 alias resdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh restart'
 
 # soc portal related
-alias rrr='php crontab.php backup_dataapi/apis/2/starttime/1470882396/endtime/1470885996/interval/1hour'
+alias rrr='php crontab.php backup_dataapi/apis/1_2/starttime/1470882396/endtime/1470885996/interval/1min'
 alias run10min='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/10min'
 alias run1hour='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/1hour'
 alias rrrr='run10min'
