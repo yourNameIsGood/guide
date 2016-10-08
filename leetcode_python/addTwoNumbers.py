@@ -5,7 +5,9 @@ class ListNode(object):
 
     # Define this to check if it works well
     def myPrint(self):
-        if self.val != None:
+        if not self.val:
+            pass
+        else:
             print(self.val)
         if self.next:
             self.next.myPrint()
