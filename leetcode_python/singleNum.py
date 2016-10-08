@@ -16,4 +16,9 @@ def single(nums):
                     del(nums[i])
 
 n = [1,0,1]
-print single(n)
+
+def sss(nums):
+    for i in nums:
+        if nums.count(i)==1:
+            return i 
+print sss(n)
