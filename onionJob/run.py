@@ -21,8 +21,7 @@ if __name__ == "__main__":
     for a in acc:
         uid = str(a)
         email = acc[a]
-        print uid, email
-        if email in today_done_account:
+        if email+"\n" in today_done_account:
             print str(email) + " is done already "
             continue
         else:
