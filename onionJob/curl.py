@@ -39,4 +39,6 @@ if __name__ == "__main__":
         if not login_res:
             print "login ERROR !!!"
             break;
-        mp = job.maopao(email, "中午吃点啥呢。。，有在中汇广场附近的泡友吗")
+        topic = "#Happy Coding# "
+        content = topic  + "happy eating lunch"
+        mp = job.maopao(email, content)
