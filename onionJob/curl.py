@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import pycurl
 import os.path
 import time
@@ -37,5 +39,4 @@ if __name__ == "__main__":
         if not login_res:
             print "login ERROR !!!"
             break;
-        #task = job.create_task(email, uid, 'bring home the shampoo')
-        mp = job.like(email, 130033)
+        mp = job.maopao(email, "中午吃点啥呢。。，有在中汇广场附近的泡友吗")
