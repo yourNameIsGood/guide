@@ -7,10 +7,14 @@ def post(url,data=None, cookie_path=None):
     c.setopt(c.URL, url)
     c.setopt(pycurl.TIMEOUT, 10)
     c.setopt(pycurl.FOLLOWLOCATION, 1)
-    c.setopt(c.WRITEDATA, f)
+    if data:
+        c.setopt(pycurl.POSTFIELDS, data)
+    if cookie_path:
+        c.setopt(pycurl.COOKIEJAR, cookie_path)
+
     c.perform()
     statusCode = c.getinfo(c.RESPONSE_CODE)
     c.close()
-    if cookie_path:
-        if(statusCode != 200):
+    if(statusCode != 200):
+        print 'statusCode' + str(statusCode)
     return True
