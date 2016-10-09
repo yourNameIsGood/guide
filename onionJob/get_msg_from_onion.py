@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-from StringIO import StringIO
 import pycurl
 import curl
 import json

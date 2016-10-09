@@ -13,16 +13,17 @@ import job
 if __name__ == "__main__":
     f = open("uniq_slogan",'r')
     slogan = f.readlines()
-    print (slogan)
     acc = account.not_duplicated_account
-    sys.exit(0)
     for a in acc:
         uid = str(a)
         email = acc[a]
-        login_res = job.login(email)
+        login_res = True#job.login(email)
         if not login_res:
             print "login ERROR !!!"
             break;
         topic = "#" + "为了码币" + "#"
-        content = topic  + "happy eating lunch"
-        #mp = job.maopao(email, content)
+        con = slogan.pop()
+        content = topic  + con
+        print email,content
+        time.sleep(10)
+        mp = job.maopao(email, content)
