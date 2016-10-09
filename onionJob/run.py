@@ -4,6 +4,7 @@ import pycurl
 import os.path
 import time
 import sys
+import random
 # project related
 import account
 import username
@@ -17,7 +18,7 @@ if __name__ == "__main__":
     f = open("uniq_slogan",'r')
     slogan = f.readlines()
     f.close() 
-    acc = account.all_account
+    acc = account.not_duplicated_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -31,11 +32,10 @@ if __name__ == "__main__":
                 break;
             topic = ""
             topic = ("#"+topic+"#") if topic else topic
-            con = slogan.pop()
+            con = random.choice(slogan)#slogan.pop()
             content = topic  + con
             print "\n job doing " , email,content
-            time.sleep(10)
             mp = job.maopao(email, content) 
             if mp:
-                os.system(" echo \" " + str(email) + "\" >> " + filename) 
+                os.system(" echo \"" + str(email) + "\" >> " + filename) 
             break
