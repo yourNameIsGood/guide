@@ -26,19 +26,6 @@ def post(url,data=None, cookie_path=None, store_cookie=None):
 
 if __name__ == "__main__":
 
-    # login #
-    url = "https://coding.net/api/login"
-    login_data = "password=403ce753c041efda97535bdfbcf836ea7d20215d&remember_me=false&email="
-    acc = account.test_account #TODO replace it
-    for a in acc:
-        uid = a
-        email = acc[a]
-        login_data += email
-        store_cookie = "cookies"+os.sep+email
-    #result = post(url, login_data, None, store_cookie)
-    #print result
-
-    # make task #
     url="https://coding.net/api/user/{email_prefix}/project/project_nim/task"
     for a in acc:
         uid = str(a)
