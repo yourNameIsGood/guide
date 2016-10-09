@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 
+from StringIO import StringIO
 import pycurl
 import os.path
 import time
@@ -29,16 +30,12 @@ def post(url,data=None, cookie_path=None, store_cookie=None):
     return True
 
 
-if __name__ == "__main__":
-
-    acc = account.test_account
-    for a in acc:
-        uid = str(a)
-        email = acc[a]
-        login_res = job.login(email)
-        if not login_res:
-            print "login ERROR !!!"
-            break;
-        topic = "#" + "为了码币" + "#"
-        content = topic  + "happy eating lunch"
-        mp = job.maopao(email, content)
+def get(url):
+    storage = StringIO()
+    c = pycurl.Curl()
+    c.setopt(c.URL, url)
+    c.setopt(c.WRITEFUNCTION, storage.write)
+    c.perform()
+    c.close()
+    content = storage.getvalue()
+    return content
