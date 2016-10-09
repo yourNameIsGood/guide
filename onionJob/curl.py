@@ -11,8 +11,9 @@ def post(url,data=None, cookie_path=None, store_cookie=None):
     c.setopt(c.URL, url)
     c.setopt(pycurl.TIMEOUT, 10)
     c.setopt(pycurl.FOLLOWLOCATION, 1)
-    if data:
-        c.setopt(pycurl.POSTFIELDS, data)
+    if not data:
+        data = " "
+    c.setopt(pycurl.POSTFIELDS, data)
     if store_cookie:
         c.setopt(pycurl.COOKIEJAR, store_cookie)
     if cookie_path:
@@ -37,4 +38,4 @@ if __name__ == "__main__":
             print "login ERROR !!!"
             break;
         #task = job.create_task(email, uid, 'bring home the shampoo')
-        mp = job.maopao(email, 'hello from the other side ')
+        mp = job.like(email, 130033)
