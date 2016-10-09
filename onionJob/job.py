@@ -2,6 +2,18 @@ import os
 import curl
 import username
 
+def maopao(email,content="hello from the other side"):
+    maopao_data = "content="+content
+    url = "https://coding.net/api/tweet"
+    cookie_path = "cookies"+os.sep+email
+    result = curl.post(url, maopao_data, cookie_path)
+    return result
+    
+def like(email, like_id=99999):
+    url = "https://coding.net/api/tweet/"+str(like_id)+"/like"
+    cookie_path = "cookies"+os.sep+email
+    result = curl.post(url, None, cookie_path)
+    return result
 
 def login(email):
     url = "https://coding.net/api/login"
@@ -21,7 +33,4 @@ def create_task(email,uid,content='finishlog'):
     task_data = task_data.replace("{content}",content)
     cookie_path = "cookies"+os.sep+email
     result = curl.post(url, task_data, cookie_path)
-    print result
- 
-
-
+    return result

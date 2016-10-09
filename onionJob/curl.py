@@ -36,4 +36,5 @@ if __name__ == "__main__":
         if not login_res:
             print "login ERROR !!!"
             break;
-        task = job.create_task(email, uid, 'bring home the shampoo')
+        #task = job.create_task(email, uid, 'bring home the shampoo')
+        mp = job.maopao(email, 'hello from the other side ')
