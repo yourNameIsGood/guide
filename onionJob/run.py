@@ -17,11 +17,11 @@ if __name__ == "__main__":
     for a in acc:
         uid = str(a)
         email = acc[a]
-        login_res = True#job.login(email)
+        login_res = job.login(email)
         if not login_res:
             print "login ERROR !!!"
             break;
-        topic = "#" + "为了码币" + "#"
+        topic = "#" + "" + "#"
         con = slogan.pop()
         content = topic  + con
         print email,content
