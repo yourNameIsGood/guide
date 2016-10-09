@@ -13,6 +13,7 @@ import job
 if __name__ == "__main__":
     f = open("uniq_slogan",'r')
     slogan = f.readlines()
+    f.close()
     acc = account.not_duplicated_account
     for a in acc:
         uid = str(a)
