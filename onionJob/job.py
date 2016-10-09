@@ -1,3 +1,4 @@
+import os
 import curl
 import username
 
@@ -7,7 +8,7 @@ def login(email):
     login_data = "password=403ce753c041efda97535bdfbcf836ea7d20215d&remember_me=false&email="
     login_data += email
     store_cookie = "cookies"+os.sep+email
-    res = post(url, login_data, None, store_cookie)
+    res = curl.post(url, login_data, None, store_cookie)
     return res
 
 def create_task(email,uid,content='finishlog'):
@@ -19,7 +20,7 @@ def create_task(email,uid,content='finishlog'):
     task_data = task_data.replace("{uid}",uid)
     task_data = task_data.replace("{content}",content)
     cookie_path = "cookies"+os.sep+email
-    result = post(url, task_data, cookie_path)
+    result = curl.post(url, task_data, cookie_path)
     print result
  
 
