@@ -1,4 +1,9 @@
-cat url_list | while read LINE
+cat ${1} | while read LINE
 do
-    wget $LINE
+    file=$(basename "$LINE")
+    if [ ! -f "$file" ]; then
+        wget $LINE
+    else
+        echo "$file is in current directory"
+    fi
 done
