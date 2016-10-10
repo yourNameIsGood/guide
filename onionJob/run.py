@@ -15,7 +15,7 @@ if __name__ == "__main__":
     filename ='today_done_account'
     today_done_account = f.readlines()
     f.close()
-    f = open("uniq_slogan",'r')
+    f = open("all_msg",'r')
     slogan = f.readlines()
     f.close() 
     acc = account.not_duplicated_account
