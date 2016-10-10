@@ -30,11 +30,12 @@ def post(url,data=None, cookie_path=None, store_cookie=None):
     return True
 
 
-def get(url):
+def get(url,cookie_path=None):
     storage = StringIO()
     c = pycurl.Curl()
     c.setopt(c.URL, url)
     c.setopt(c.WRITEFUNCTION, storage.write)
+    c.setopt(pycurl.COOKIEFILE, cookie_path)
     c.perform()
     c.close()
     content = storage.getvalue()
