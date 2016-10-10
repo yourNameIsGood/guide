@@ -28,7 +28,9 @@ def get_status(uid="352341419",curpage=0):
 if __name__ == "__main__":
     #res = login()
     uid = "352341419"
-    for page in range(10,41):
+    uid = "262551087" #cherry Pang
+    uid = "247827316" #wanyu
+    for page in range(0,20):
         res = get_status(uid,page)
         for i in res:
             print i.encode('utf-8')
