@@ -21,8 +21,6 @@ map <C-l> <C-W>l
 
 let @m = "oecho '<PRE>';var_dump($s);die;Ifss"
 let @l = "ofile_put_contents(dirname(__FILE__).'/'.$file,$content,FILE_APPEND|LOCK_EX);"
+let @c = "i# -*- coding: UTF-8 -*-"
 
-let @d = ":r !date +%Y/%m/%d\ %H:%M"
-
-let @p = ":r !data€kbeo"
 let @p = ":r !dateI### o€kb"
