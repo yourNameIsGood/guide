@@ -5,9 +5,9 @@ import pycurl
 import os.path
 import time
 # project related
-import account
-import username
-import job
+#import account
+#import username
+#import job
 
 def post(url,data=None, cookie_path=None, store_cookie=None):
     c = pycurl.Curl()
@@ -35,7 +35,8 @@ def get(url,cookie_path=None):
     c = pycurl.Curl()
     c.setopt(c.URL, url)
     c.setopt(c.WRITEFUNCTION, storage.write)
-    c.setopt(pycurl.COOKIEFILE, cookie_path)
+    if cookie_path:
+        c.setopt(pycurl.COOKIEFILE, cookie_path)
     c.perform()
     c.close()
     content = storage.getvalue()
