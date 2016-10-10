@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-
+import time
 import curl
 import sys
 import os
@@ -27,8 +27,10 @@ def get_status(uid="352341419",curpage=0):
 
 if __name__ == "__main__":
     #res = login()
-
-    res = get_status()
-    for i in res:
-        print i.encode('utf-8')
+    uid = "352341419"
+    for page in range(10,41):
+        res = get_status(uid,page)
+        for i in res:
+            print i.encode('utf-8')
+        time.sleep(3)
     
