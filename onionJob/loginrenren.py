@@ -3,9 +3,7 @@
 import curl
 import sys
 import os
-
-
-
+import json
 
 def login():
     url = "http://www.renren.com/ajaxLogin/login?1=1&uniqueTimestamp=201691102787"
@@ -13,18 +11,24 @@ def login():
     store_path = "cookies/login_renren"
     res = curl.post(url, login_data, None, store_path)
     return res
-    
 
 def get_status(uid="352341419",curpage=0):
     url="http://status.renren.com/GetSomeomeDoingList.do?userId="+str(uid)+"&curpage=0&_jcb=jQuery1111016987169110463962_1476067968057&requestToken=-1018153720&_rtk=8f113362&_=1476067968058"
     url="http://status.renren.com/GetSomeomeDoingList.do?userId="+str(uid)+"&curpage="+str(curpage)+"&requestToken=-1018153720&_rtk=8f113362&_=1476067968058"
     cookie_path = "cookies/login_renren"
     res = curl.get(url,cookie_path)
-    return res
+    res = json.loads(res)
+    datalist = []
+    if 'doingArray' in res:
+        data = res['doingArray']
+        for i in data:
+            datalist.append(i['content'])
+    return datalist
 
 if __name__ == "__main__":
     #res = login()
 
     res = get_status()
-    print res
+    for i in res:
+        print i.encode('utf-8')
     
