@@ -30,6 +30,11 @@ if __name__ == "__main__":
     uid = "352341419"
     uid = "262551087" #cherry Pang
     uid = "247827316" #wanyu
+    uid = "249290565" #sun jiao
+    uid = "254528213" #sun jiao
+    uid = "250374246" #sun jiao
+    uid = "252247267" #sun jiao
+    uid = "247814063" #sun jiao
     for page in range(0,20):
         res = get_status(uid,page)
         for i in res:
