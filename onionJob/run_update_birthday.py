@@ -14,7 +14,6 @@ if __name__ == "__main__":
     f = open('update_birthday_log','r')
     filename ='update_birthday_log'
     today_done_account = f.readlines()
-    f.close()
     f.close() 
     acc = account.all_account
     for a in acc:
