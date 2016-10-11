@@ -29,15 +29,13 @@ def update_info():
                 print "login ERROR !!!"
                 break;
             log = "\n\n job doing " ,email,uid
-            print log
-            #os.system(" echo \"" + str(log) + "\" >> " + filename) 
             res = job.update_info(email, uid) 
             time.sleep(2)
             if res:
                 os.system(" echo \"" + str(email) + "\" >> " + filename) 
             #break
 
-if __name__ == "__main__":
+def maopao():
     f = open('today_done_account','r')
     filename ='today_done_account'
     today_done_account = f.readlines()
@@ -66,3 +64,6 @@ if __name__ == "__main__":
             if mp:
                 os.system(" echo \"" + str(email) + "\" >> " + filename) 
             break
+
+
+if __name__ == "__main__":
