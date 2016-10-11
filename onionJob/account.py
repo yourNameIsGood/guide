@@ -7,7 +7,7 @@ test_account[136760]="fangtianshuu@126.com"
 test_account[136019]="fujieyu126@126.com"
 
 all_account = {}
-all_account[42615]="jack20039@hotmail.com"
+#all_account[42615]="jack20039@hotmail.com"
 all_account[136034]="songchengxiann126@126.com"
 all_account[150875]="bluemarkery@163.com"
 all_account[150466]="jamesunter@163.com"

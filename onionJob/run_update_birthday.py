@@ -16,7 +16,7 @@ if __name__ == "__main__":
     today_done_account = f.readlines()
     f.close()
     f.close() 
-    acc = account.test_account
+    acc = account.all_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -32,8 +32,7 @@ if __name__ == "__main__":
             print log
             #os.system(" echo \"" + str(log) + "\" >> " + filename) 
             res = job.update_info(email, uid) 
-            print res
-            time.sleep(5)
+            time.sleep(2)
             if res:
-                os.system(" echo \"" + str(email) + " done.\" >> " + filename) 
+                os.system(" echo \"" + str(email) + "\" >> " + filename) 
             #break
