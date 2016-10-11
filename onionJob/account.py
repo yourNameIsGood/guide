@@ -1,5 +1,7 @@
 test_account={}
-test_account[42615]="jack20039@hotmail.com"
+#test_account[42615]="jack20039@hotmail.com"
+test_account[150875]="bluemarkery@163.com"
+test_account[150466]="jamesunter@163.com"
 
 all_account = {}
 all_account[42615]="jack20039@hotmail.com"
