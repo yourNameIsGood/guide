@@ -6,17 +6,20 @@ import random
 from random import randint
 
 def update_info(email,uid):
-    tagslist =random.sample(xrange(1,77),randint(1,10))
-    tags = ','.join(str(x) for x in tagslist)
-    job = str(randint(1,8))
-    sex = str(randint(0,1))
-    birthday = "1996-"+str(randint(10,12))+"-"+str(randint(13,30))
-    location=""
-    company=""
-    slogan=""
-    introducion=""
-    id=uid
-    name= email[0:email.index("@")]
+    params={}
+    params['tagslist'] =random.sample(xrange(1,77),randint(1,10))
+    params['tags'] = ','.join(str(x) for x in tagslist)
+    params['job'] = str(randint(1,8))
+    params['sex'] = str(randint(0,1))
+    params['birthday'] = "1996-"+str(randint(10,12))+"-"+str(randint(13,30))
+    params['location']=""
+    params['company']=""
+    params['slogan']=""
+    params['introducion']=""
+    params['id']=uid
+    params['name']= email[0:email.index("@")]
+    url = "https://coding.net/api/user/updateInfo"
+    cookie_path = "cookies"+os.sep+email
     return tags, job, sex, birthday, id, name
     
     
