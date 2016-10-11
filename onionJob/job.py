@@ -3,10 +3,12 @@ import os
 import curl
 import username
 import random
+from random import randint
 
 def update_info(email,uid):
     tagslist =random.sample(xrange(1,77),randint(1,11))
     tags = ','.join(tagslist)
+    return tags
     
     
 
