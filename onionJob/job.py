@@ -3,6 +3,13 @@ import os
 import curl
 import username
 
+def upload_avatar(email,avaurl):
+    avadata = "avatar="+avaurl+"?imageMogr2/auto-orient/format/jpeg/crop/!128x128a0a0"
+    url = "https://coding.net/api/user/updateavatar"
+    cookie_path = "cookies"+os.sep+email
+    result = curl.post(url, avadata, cookie_path)
+    return result
+
 def maopao(email,content="hello from the other side"):
     maopao_data = "content="+content
     url = "https://coding.net/api/tweet"
