@@ -19,4 +19,5 @@ php crontab.php test_cache_backup/api/${api}/idc/bj/spe_gid/5/starttime/${st}/en
 curl http://logapi.intra.nexqloud.net:8002/webapi/ -d '''{ "jsonrpc": "2.0", "method": "'''${api}'''", "params": ["5","bj", '''${st}''','''${et}''', "'''${interval}'''"], "id": "aSUjSDRsmws6Fju1"}''' > ${fpath}api.json && sleep 1 && python -m json.tool ${fpath}api.json > ${fpath}1
 # get rid of .0 in return of data-api
 sed -i 's/\.0//' ${fpath}1
+php ~/work/code/guide/myShell/nxgbak/treatapi.php && python -m json.tool ${fpath}1 > ${fpath}jsontmp && cat ${fpath}jsontmp > ${fpath}1
 vimdiff ${fpath}1 ${fpath}2 
