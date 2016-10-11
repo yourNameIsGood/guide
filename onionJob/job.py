@@ -2,6 +2,13 @@
 import os
 import curl
 import username
+import random
+
+def update_info(email,uid):
+    tagslist =random.sample(xrange(1,77),randint(1,11))
+    tags = ','.join(tagslist)
+    
+    
 
 def upload_avatar(email,avaurl):
     avadata = "avatar=http://"+avaurl+"?imageMogr2/auto-orient/format/jpeg/crop/!128x128a0a0"
