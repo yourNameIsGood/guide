@@ -7,20 +7,22 @@ from random import randint
 
 def update_info(email,uid):
     params={}
-    params['tagslist'] =random.sample(xrange(1,77),randint(1,10))
+    tagslist =random.sample(xrange(1,77),randint(1,10))
     params['tags'] = ','.join(str(x) for x in tagslist)
     params['job'] = str(randint(1,8))
     params['sex'] = str(randint(0,1))
-    params['birthday'] = "1996-"+str(randint(10,12))+"-"+str(randint(13,30))
-    params['location']=""
-    params['company']=""
-    params['slogan']=""
-    params['introducion']=""
+    params['birthday'] = "199"+str(randint(0,8))+"-"+str(randint(10,12))+"-"+str(randint(13,30))
+    #params['location']=""
+    #params['company']=""
+    #params['slogan']=""
+    #params['introducion']=""
     params['id']=uid
     params['name']= email[0:email.index("@")]
     url = "https://coding.net/api/user/updateInfo"
+    data="&".join(['{}={}'.format(k,v) for k,v in params.iteritems()])
     cookie_path = "cookies"+os.sep+email
-    return tags, job, sex, birthday, id, name
+    result = curl.post(url, data, cookie_path)
+    return data
     
     
 
