@@ -32,7 +32,6 @@ if __name__ == "__main__":
             os.system(" echo \"" + str(log) + "\" >> " + filename) 
             res = job.update_info(email, uid) 
             print res
-            sys.exit(0)
             #if res:
             #    os.system(" echo \"" + str(email) + " done.\" >> " + filename) 
             #break
