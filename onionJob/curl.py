@@ -4,10 +4,6 @@ from StringIO import StringIO
 import pycurl
 import os.path
 import time
-# project related
-#import account
-#import username
-#import job
 
 def post(url,data=None, cookie_path=None, store_cookie=None):
     c = pycurl.Curl()

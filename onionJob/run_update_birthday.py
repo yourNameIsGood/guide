@@ -16,7 +16,7 @@ if __name__ == "__main__":
     today_done_account = f.readlines()
     f.close()
     f.close() 
-    acc = account.not_duplicated_account
+    acc = account.test_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -28,10 +28,12 @@ if __name__ == "__main__":
             if not login_res:
                 print "login ERROR !!!"
                 break;
-            log = " job doing " ,email,uid
-            os.system(" echo \"" + str(log) + "\" >> " + filename) 
+            log = "\n\n job doing " ,email,uid
+            print log
+            #os.system(" echo \"" + str(log) + "\" >> " + filename) 
             res = job.update_info(email, uid) 
             print res
-            #if res:
-            #    os.system(" echo \"" + str(email) + " done.\" >> " + filename) 
+            time.sleep(5)
+            if res:
+                os.system(" echo \"" + str(email) + " done.\" >> " + filename) 
             #break
