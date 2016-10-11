@@ -32,7 +32,7 @@ def update_info():
             time.sleep(2)
             if res:
                 os.system(" echo \"" + str(email) + "\" >> " + filename) 
-            #break
+            #goes on and on until all accounts are done
 
 def maopao():
     f = open('today_done_account','r')
@@ -66,7 +66,8 @@ def maopao():
 
 
 if __name__ == "__main__":
-    if not sys.argv[1]:
+    if len(sys.argv)<2:
+        print 'nothing happen'
         sys.exit(0)
     func = sys.argv[1]
     eval(func+'()')
