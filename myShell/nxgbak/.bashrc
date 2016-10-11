@@ -185,7 +185,7 @@ export NVM_DIR="/home/randylin/.nvm"
 # open robomongo
 alias robomongo='/home/randylin/下载/robomongo/bin/robomongo &'
 # open electron-wechat
-alias wechat='cd /home/randylin/下载/elec/ && ./electron ~/work/code/electronic-wechat &'
+alias wechat='sh ~/work/code/guide/myShell/nxgbak/wechat_run.sh'
 
 #data api related
 alias startdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh start'
