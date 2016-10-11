@@ -11,6 +11,8 @@ import username
 import job
 
 def update_info():
+    print 'update info'
+    sys.exit(0)
     f = open('update_birthday_log','r')
     filename ='update_birthday_log'
     today_done_account = f.readlines()
@@ -36,6 +38,8 @@ def update_info():
             #break
 
 def maopao():
+    print 'maopao'
+    sys.exit(0)
     f = open('today_done_account','r')
     filename ='today_done_account'
     today_done_account = f.readlines()
@@ -67,3 +71,10 @@ def maopao():
 
 
 if __name__ == "__main__":
+    if not sys.argv[1]:
+        sys.argv[1] = 'maopao'
+    func = sys.argv[1]
+    try:
+        func()
+    except:
+        print func,'() is not runnable'
