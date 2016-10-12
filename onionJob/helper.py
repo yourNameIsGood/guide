@@ -1,5 +1,15 @@
-# get those unusual username
+import sys
+import os
+import re
+import time
 
+
+def remove_tag_a(text):
+    text = re.sub("<a.*>?",'',text)
+    text = re.sub("</a>",'',text)
+    return text
+
+# get those unusual username
 def uname(email_prefix):
     if email_prefix == "songchengxiann126" :
         email_prefix="songchengxiann"

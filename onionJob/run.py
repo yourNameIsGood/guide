@@ -10,6 +10,11 @@ import account
 import helper
 import job
 
+def notif():
+    text = "<a href=\"https://coding.net/u/bananamonkey\">bananamonkey</a> 回复了你的冒泡 <a href=\"https://coding.net/u/fangtianshuu/pp/130331\">我要有好的身体 然后学会照顾你</a>：照顾谁？"
+    res = helper.remove_tag_a(text)
+    print res
+
 def update_info():
     f = open('done_log/today_done_birthday','r')
     filename ='done_log/today_done_birthday'
