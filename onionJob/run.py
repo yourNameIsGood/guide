@@ -21,8 +21,8 @@ def notif():
             for i in range(0,10):
                 print "ERR: login FAILED !!!"
             sys.exit(0)
-        log = "\n\n job doing " ,email,uid
-        res = job.update_info(email, uid) 
+        log = "\n\n job done " ,email,uid
+        res = job.get_notif(email) 
         time.sleep(2)
         if res:
             os.system(" echo \"" + str(log) + "\" >> " + logfile) 

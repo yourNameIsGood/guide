@@ -1,0 +1,1 @@
+{code:0,data:{list:[{owner_id:150875,target_type:BulkMessage,created_at:1454987366000,target_id:4,id:1830666,type:4,content:u003ca hrefu003d"https://coding.net/event/lottery" relu003d"nofollow"u003eCoding 萌猴抓周抽奖活动正在进行中！快来看看！u003c/au003e,status:0}],page:1,pageSize:10,totalPage:1,totalRow:1}}

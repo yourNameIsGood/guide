@@ -5,11 +5,17 @@ import helper
 import random
 from random import randint
 
-def get_notif(email, page, size):
+def get_notif(email, page=1, size=10):
+    dbfile = "notif/"+email
     url = "https://coding.net/api/notification?page="+str(page)+"&pageSize="+str(size)
     cookie_path = "cookies"+os.sep+email
     res = curl.get(url, cookie_path)
-    return res
+    #print res['code']
+    os.system(" echo \"" + res + "\" >> " + dbfile) 
+    #if res['code'] == str(0):
+    #    return True
+    #else:
+    #    return False
 
 def update_info(email,uid):
     params={}
