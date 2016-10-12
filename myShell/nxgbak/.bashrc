@@ -146,8 +146,8 @@ alias gitpushoriginmaster='git push origin master'
 
 alias finddos='find . | xargs grep  -l'
 alias findnotrdos='find [^R]* | xargs grep  -l'
-alias megrep='sh ~/work/code/guide/myShell/megrep.sh'
-alias psef='sh ~/work/code/guide/myShell/psef.sh'
+alias megrep='sh ~/work/code/onionGuide/myShell/megrep.sh'
+alias psef='sh ~/work/code/onionGuide/myShell/psef.sh'
 
 alias jsonformat='python -m json.tool '
 
@@ -155,7 +155,7 @@ alias dstcp='dstat -cdlmnpsy --tcp'
 alias tm='tmux'
 
 # commit diary and backup code
-alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/codeBackup.sh'
+alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/onionGuide/myShell/codeBackup.sh'
 alias vimdiary='vim ~/work/diary/docs/diary.md'
 
 alias pyhttpserver='python -m SimpleHTTPServer &'
@@ -177,7 +177,7 @@ alias tod='todownload'
 alias tomongo='cd /usr/local/mongodb/bin'
 alias todataapi='cd ~/work/code/data_api/trunk/l7datawebapi'
 alias tosocportal='cd ~/work/code/soc_portal/soc_portal/trunk/App'
-alias toonion="cd /home/randylin/work/code/guide/onionJob"
+alias toonion="cd /home/randylin/work/code/onionGuide/onionJob"
 
 # screen shot
 alias ss='gnome-screenshot -ac'
@@ -188,7 +188,7 @@ export NVM_DIR="/home/randylin/.nvm"
 # open robomongo
 alias robomongo='/home/randylin/下载/robomongo/bin/robomongo &'
 # open electron-wechat
-alias wechat='sh ~/work/code/guide/myShell/nxgbak/wechat_run.sh'
+alias wechat='sh ~/work/code/onionGuide/myShell/nxgbak/wechat_run.sh'
 
 #data api related
 alias startdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh start'
