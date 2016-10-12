@@ -3,9 +3,9 @@ import os
 import re
 import time
 
-
+# TODO : not working well
 def remove_tag_a(text):
-    text = re.sub("<a.*>?",'',text)
+    text = re.sub("<a*?>",'',text) # does not work fine 
     text = re.sub("</a>",'',text)
     return text
 

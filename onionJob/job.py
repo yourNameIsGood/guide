@@ -5,6 +5,12 @@ import helper
 import random
 from random import randint
 
+def get_notif(email, page, size):
+    url = "https://coding.net/api/notification?page="+str(page)+"&pageSize="+str(size)
+    cookie_path = "cookies"+os.sep+email
+    res = curl.get(url, cookie_path)
+    return res
+
 def update_info(email,uid):
     params={}
     tagslist =random.sample(xrange(1,77),randint(1,10))
