@@ -7,18 +7,15 @@ import sys
 import random
 # project related
 import account
-import username
+import helper
 import job
 
 if __name__ == "__main__":
-    f = open('upload_ava_log','r')
-    filename ='upload_ava_log'
+    f = open('update_birthday_log','r')
+    filename ='update_birthday_log'
     today_done_account = f.readlines()
-    f.close()
-    f = open("avatar_url",'r')
-    slogan = f.readlines()
     f.close() 
-    acc = account.not_duplicated_account
+    acc = account.all_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -30,10 +27,11 @@ if __name__ == "__main__":
             if not login_res:
                 print "login ERROR !!!"
                 break;
-            con = random.choice(slogan)
-            content = con
-            print "\n job doing " , email,content
-            res = job.upload_avatar(email, content) 
+            log = "\n\n job doing " ,email,uid
+            print log
+            #os.system(" echo \"" + str(log) + "\" >> " + filename) 
+            res = job.update_info(email, uid) 
+            time.sleep(2)
             if res:
                 os.system(" echo \"" + str(email) + "\" >> " + filename) 
-            break
+            #break

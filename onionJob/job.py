@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 import os
 import curl
-import username
+import helper
 import random
 from random import randint
 
@@ -57,7 +57,7 @@ def login(email):
 def create_task(email,uid,content='finishlog'):
     url="https://coding.net/api/user/{email_prefix}/project/project_nim/task"
     email_prefix = email[0:email.index("@")]
-    email_prefix = username.uname(email_prefix)
+    email_prefix = helper.uname(email_prefix)
     url = url.replace("{email_prefix}",email_prefix)
     task_data = "owner_id={uid}&priority=1&content={content}&description=v&deadline=&labels=&watchers="
     task_data = task_data.replace("{uid}",uid)

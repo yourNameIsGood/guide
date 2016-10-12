@@ -7,12 +7,12 @@ import sys
 import random
 # project related
 import account
-import username
+import helper
 import job
 
 def update_info():
-    f = open('today_done_birthday','r')
-    filename ='today_done_birthday'
+    f = open('done_log/today_done_birthday','r')
+    filename ='done_log/today_done_birthday'
     today_done_account = f.readlines()
     f.close() 
     acc = account.all_account
@@ -35,8 +35,8 @@ def update_info():
             #goes on and on until all accounts are done
 
 def upload_avatar():
-    f = open('upload_ava_log','r')
-    filename ='upload_ava_log'
+    f = open('done_log/today_done_avatar','r')
+    filename ='done_log/today_done_avatar'
     today_done_account = f.readlines()
     f.close()
     f = open("DB_avatar_url",'r')
@@ -63,8 +63,8 @@ def upload_avatar():
             break
 
 def maopao():
-    f = open('today_done_account','r')
-    filename ='today_done_account'
+    f = open('done_log/today_done_account','r')
+    filename ='done_log/today_done_account'
     today_done_account = f.readlines()
     f.close()
     f = open("DB_all_msg",'r')
