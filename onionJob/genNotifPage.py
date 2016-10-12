@@ -17,12 +17,9 @@ def putwrap(email,t):
     t = divhead+ t + divfoot
     return t
 
-if __name__ == "__main__":
-    version2()
-
+# version 2, going with jsonfile
 def version2():
     acc = account.test_account
-    # version 2, going with jsonfile
     htmlfile = "notif_json.html"
     os.system(" > " + htmlfile)
     for a in acc:
@@ -39,13 +36,17 @@ def version2():
                 info = str(i) + "=="
                 print info
                 print data[i]
+                with open(htmlfile, 'a+') as f:
+                    f.write(info)
+                    f.write(data[i])
             #text += bueatify(i)
             #text += bueatify(data[i])
             #t = putwrap(email , text)
             #os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
+# version 1
 def version1():
-    # version 1
+    acc = account.test_account
     htmlfile = "notif.html"
     os.system(" > " + htmlfile)
     for a in acc:
@@ -59,4 +60,7 @@ def version1():
             t = putwrap(email , text)
             os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
-    
+if __name__ == "__main__":
+    version2()
+
+
