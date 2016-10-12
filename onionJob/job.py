@@ -7,6 +7,15 @@ import random
 import json
 from random import randint
 
+def del_notif(email):
+    dbfile = "notif/"+email
+    dbjsonfile =  'notif/json_'+ email
+    url = "https://coding.net/api/notification/mark-read?all=true"
+    cookie_path = "cookies"+os.sep+email
+    res = curl.post(url, None, cookie_path)
+    os.system(" rm " + dbfile)
+    os.system(" rm " + dbjsonfile)
+
 def get_notif(email, page=1, size=10):
     dbfile = "notif/"+email
     dbjsonfile =  'notif/json_'+ email

@@ -1,10 +1,9 @@
 test_account={}
-#test_account[42615]="jack20039@hotmail.com"
-test_account[150875]="bluemarkery@163.com"
-test_account[137790]="majijiooo@163.com"
+#test_account[150875]="bluemarkery@163.com"
+#test_account[137790]="majijiooo@163.com"
+#test_account[136760]="fangtianshuu@126.com"
+#test_account[136019]="fujieyu126@126.com"
 test_account[150466]="jamesunter@163.com"
-test_account[136760]="fangtianshuu@126.com"
-test_account[136019]="fujieyu126@126.com"
 
 all_account = {}
 #all_account[42615]="jack20039@hotmail.com"

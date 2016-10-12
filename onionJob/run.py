@@ -14,6 +14,7 @@ def notif():
     logfile = "LogOfRun"
     os.system("rm notif/*")
     acc = account.not_duplicated_account
+    acc = account.test_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -29,6 +30,26 @@ def notif():
             os.system(" echo \"" + str(log) + "\" >> " + logfile) 
         #goes on and on until all accounts are done
 
+def delnotif():
+    target = 'all'
+    if len(sys.argv)>=3:
+        target = sys.argv[2]
+    logfile = "LogOfRun"
+    acc = account.not_duplicated_account
+    for a in acc:
+        uid = str(a)
+        email = acc[a]
+        login_res = True # 加了验证码限制，用老cookie，不登录 # job.login(email)
+        if not login_res:
+            for i in range(0,10):
+                print "ERR: login FAILED !!!"
+            sys.exit(0)
+        log = "\n\n job done " ,email,uid
+        res = job.del_notif(email) 
+        time.sleep(2)
+        if res:
+            os.system(" echo \"" + str(log) + "\" >> " + logfile) 
+        #goes on and on until all accounts are done
 
 def update_info():
     f = open('done_log/today_done_birthday','r')
