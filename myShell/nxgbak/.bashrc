@@ -158,6 +158,8 @@ alias tm='tmux'
 alias commitdiary='rm -f /home/randylin/work/diary/.git/index.lock && sh /home/randylin/work/code/guide/myShell/codeBackup.sh'
 alias vimdiary='vim ~/work/diary/docs/diary.md'
 
+alias pyhttpserver='python -m SimpleHTTPServer'
+
 # ssh without typing pwd
 alias ssh77='sshpass -p jesse ssh jesse@10.6.8.77'
 alias ssh72='sshpass -p jesse ssh jesse@10.6.8.72'
