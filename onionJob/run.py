@@ -34,12 +34,40 @@ def update_info():
                 os.system(" echo \"" + str(email) + "\" >> " + filename) 
             #goes on and on until all accounts are done
 
+def upload_avatar():
+    f = open('upload_ava_log','r')
+    filename ='upload_ava_log'
+    today_done_account = f.readlines()
+    f.close()
+    f = open("DB_avatar_url",'r')
+    slogan = f.readlines()
+    f.close() 
+    acc = account.not_duplicated_account
+    for a in acc:
+        uid = str(a)
+        email = acc[a]
+        if email+"\n" in today_done_account:
+            print str(email) + " is done already "
+            continue
+        else:
+            login_res = job.login(email)
+            if not login_res:
+                print "login ERROR !!!"
+                break;
+            con = random.choice(slogan)
+            content = con
+            print "\n job doing " , email,content
+            res = job.upload_avatar(email, content) 
+            if res:
+                os.system(" echo \"" + str(email) + "\" >> " + filename) 
+            break
+
 def maopao():
     f = open('today_done_account','r')
     filename ='today_done_account'
     today_done_account = f.readlines()
     f.close()
-    f = open("all_msg",'r')
+    f = open("DB_all_msg",'r')
     slogan = f.readlines()
     f.close() 
     acc = account.not_duplicated_account
