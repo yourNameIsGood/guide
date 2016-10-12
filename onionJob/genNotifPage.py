@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import json
 import sys
 import time
@@ -5,6 +6,8 @@ import os
 import account
 
 def bueatify(t):
+    t = str(t)
+    t = t.encode('ascii','ignore')
     t = "<p>"+t+"</p>"
     return t
 
@@ -27,16 +30,17 @@ if __name__ == "__main__":
         with open(fname, 'r') as f:
             datastr = f.read()
         print datastr
-        data = json.loads(datastr)
+        datalist = json.loads(datastr)
         text = ''
-        print type(data)
-        #for i in data:
-        #    print i
-        #    print str(i)
-        #    text += bueatify(i)
-        #    text += bueatify(data[i])
-        #t = putwrap(email , text)
-        #os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+        print type(datalist)
+        for data in datalist:
+            print data
+            print str(data)
+            for i in data:
+                text += bueatify(i)
+                text += bueatify(data[i])
+            t = putwrap(email , text)
+            os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
 def version1():
     # version 1
