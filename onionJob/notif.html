@@ -29,3 +29,18 @@
 </p><p>您的冒泡<a href=https://coding.net/u/fujieyu126/pp/87760>[图片]</a>，已被推荐到冒泡广场
 </p><p><a href=https://coding.net/u/bluemarkery>bluemarkery</a> 关注了你
 </p><hr>
+
+<script>
+p = document.getElementsByTagName("p")
+var reply = "回复了你的冒泡"
+var recom = "被推荐"
+for ( i in p){ 
+    var info=p[i].innerHTML; 
+    if(info.indexOf(reply)>0){
+        p[i].style.backgroundColor="#ff0" ;
+    }
+    if(info.indexOf(recom)>0){
+        p[i].style.backgroundColor="#f00" ;
+    }
+}
+</script>
