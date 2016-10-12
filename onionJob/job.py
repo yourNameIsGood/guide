@@ -3,6 +3,7 @@ import os
 import curl
 import helper
 import random
+import json
 from random import randint
 
 def get_notif(email, page=1, size=10):
@@ -10,12 +11,12 @@ def get_notif(email, page=1, size=10):
     url = "https://coding.net/api/notification?page="+str(page)+"&pageSize="+str(size)
     cookie_path = "cookies"+os.sep+email
     res = curl.get(url, cookie_path)
-    #print res['code']
-    os.system(" echo \"" + res + "\" >> " + dbfile) 
-    #if res['code'] == str(0):
-    #    return True
-    #else:
-    #    return False
+    res = json.loads(res)
+    if res['code'] == 0:
+        os.system(" echo \"" + str(res) + "\" >> " + dbfile) 
+        return True
+    else:
+        return False
 
 def update_info(email,uid):
     params={}
