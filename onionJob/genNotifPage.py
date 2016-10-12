@@ -24,18 +24,19 @@ if __name__ == "__main__":
         uid = str(a)
         email = acc[a]
         fname = "notif/json_"+email
-        print fname
-        sys.exit(0)
         with open(fname, 'r') as f:
-            data = f.read
-        print data
-        #data = json.loads(data)
+            datastr = f.read()
+        print datastr
+        data = json.loads(datastr)
         text = ''
-        for i in data:
-            text += bueatify(i)
-            text += bueatify(data[i])
-        t = putwrap(email , text)
-        os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+        print type(data)
+        #for i in data:
+        #    print i
+        #    print str(i)
+        #    text += bueatify(i)
+        #    text += bueatify(data[i])
+        #t = putwrap(email , text)
+        #os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
 def version1():
     # version 1

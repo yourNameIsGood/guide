@@ -20,13 +20,11 @@ def get_notif(email, page=1, size=10):
             t = i['content'].encode('utf-8')
             i['content'] = t
             os.system(" echo \"" + str(t) + "\" >> " + dbfile) 
-            jsondata = json.dumps(i)
-            print 'jsondata'
-            print 'jsondata'
-            time.sleep(3)
-            with open(dbjsonfile, 'a+') as wj:
-                wj.write(jsondata)
-            #os.system(" echo \"" + str(jsondata) + "\" >> " + dbjsonfile) 
+        jsondata = json.dumps(datalist)
+        print 'jsondata'
+        with open(dbjsonfile, 'a+') as wj:
+            wj.write(jsondata)
+        #os.system(" echo \"" + str(jsondata) + "\" >> " + dbjsonfile) 
         return True
     else:
         return False
