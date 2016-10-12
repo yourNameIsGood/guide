@@ -198,7 +198,7 @@ alias resdataapi='sh ~/work/code/data_api/trunk/l7datawebapi/ctl.sh restart'
 # soc portal related
 #alias rrr='php crontab.php backup_dataapi/apis/1/spegids/2_5_10/starttime/1470882396/endtime/1470885996/interval/1min'
 #alias rrr='php crontab.php backup_dataapi/apis/3/last_30_days/1/interval/1hour'
-alias rrr='php crontab.php backup_dataapi/apis/2/modgrp/0/starttime/1470882396/endtime/1470885996/interval/1min'
+alias rrr='php crontab.php backup_dataapi/apis/2/modgrp/2/starttime/1470882396/endtime/1470885996/interval/1min'
 alias run10min='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/10min'
 alias run1hour='php crontab.php backup_dataapi/api/spe_mitigation_traffic_idc/interval/1hour'
 alias testcachebackup='php crontab.php test_cache_backup/api/spe_netflow_overview/spe_gid/10/starttime/1470882396/endtime/1470885996/interval/1min'
