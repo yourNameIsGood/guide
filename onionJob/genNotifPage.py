@@ -51,13 +51,16 @@ def version1():
     for a in acc:
         uid = str(a)
         email = acc[a]
-        with open("notif/"+email, 'r') as f:
-            data = f.readlines()
-            text = ''
-            for i in data:
-                text += bueatify(i)
-            t = putwrap(email , text)
-            os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+        try:
+            with open("notif/"+email, 'r') as f:
+                data = f.readlines()
+                text = ''
+                for i in data:
+                    text += bueatify(i)
+                t = putwrap(email , text)
+                os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+        except:
+            continue
     pagescript = '''
     <script>
     p = document.getElementsByTagName('p')

@@ -13,8 +13,8 @@ import job
 def notif():
     logfile = "LogOfRun"
     os.system("rm notif/*")
+    #acc = account.test_account
     acc = account.not_duplicated_account
-    acc = account.test_account
     for a in acc:
         uid = str(a)
         email = acc[a]
@@ -30,12 +30,12 @@ def notif():
             os.system(" echo \"" + str(log) + "\" >> " + logfile) 
         #goes on and on until all accounts are done
 
-def delnotif():
+def del_notif():
     target = 'all'
     if len(sys.argv)>=3:
         target = sys.argv[2]
     logfile = "LogOfRun"
-    acc = account.not_duplicated_account
+    acc = account.test_account
     for a in acc:
         uid = str(a)
         email = acc[a]

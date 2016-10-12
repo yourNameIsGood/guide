@@ -13,6 +13,7 @@ def del_notif(email):
     url = "https://coding.net/api/notification/mark-read?all=true"
     cookie_path = "cookies"+os.sep+email
     res = curl.post(url, None, cookie_path)
+    print res
     os.system(" rm " + dbfile)
     os.system(" rm " + dbjsonfile)
 
