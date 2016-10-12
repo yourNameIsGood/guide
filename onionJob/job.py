@@ -24,7 +24,8 @@ def get_notif(email, page=1, size=10):
             print 'jsondata'
             print 'jsondata'
             time.sleep(3)
-            os.system(" echo \"" + str(jsondata) + "\" >> " + dbfile) 
+            with open(dbjsonfile, 'a+') as wj:
+                wj.write(jsondata)
             #os.system(" echo \"" + str(jsondata) + "\" >> " + dbjsonfile) 
         return True
     else:

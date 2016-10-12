@@ -17,7 +17,7 @@ def notif():
     for a in acc:
         uid = str(a)
         email = acc[a]
-        login_res = job.login(email)
+        login_res = True # job.login(email)
         if not login_res:
             for i in range(0,10):
                 print "ERR: login FAILED !!!"
