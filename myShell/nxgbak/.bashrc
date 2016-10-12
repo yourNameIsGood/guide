@@ -175,6 +175,7 @@ alias tod='todownload'
 alias tomongo='cd /usr/local/mongodb/bin'
 alias todataapi='cd ~/work/code/data_api/trunk/l7datawebapi'
 alias tosocportal='cd ~/work/code/soc_portal/soc_portal/trunk/App'
+alias toonion="cd /home/randylin/work/code/guide/onionJob"
 
 # screen shot
 alias ss='gnome-screenshot -ac'
