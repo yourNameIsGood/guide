@@ -18,8 +18,10 @@ def putwrap(email,t):
     return t
 
 if __name__ == "__main__":
-    acc = account.test_account
+    version2()
 
+def version2():
+    acc = account.test_account
     # version 2, going with jsonfile
     htmlfile = "notif_json.html"
     os.system(" > " + htmlfile)
@@ -29,20 +31,18 @@ if __name__ == "__main__":
         fname = "notif/json_"+email
         with open(fname, 'r') as f:
             datastr = f.read()
-        #print datastr
-        #for i in datastr:
-        #    print i
-        #sys.exit(0)
         datalist = json.loads(datastr)
         text = ''
         for data in datalist:
-            print data
-            print str(data)
+            print data['content']
             for i in data:
-                text += bueatify(i)
-                text += bueatify(data[i])
-            t = putwrap(email , text)
-            os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+                info = str(i) + "=="
+                print info
+                print data[i]
+            #text += bueatify(i)
+            #text += bueatify(data[i])
+            #t = putwrap(email , text)
+            #os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
 def version1():
     # version 1
