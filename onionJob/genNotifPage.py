@@ -7,7 +7,6 @@ import account
 
 def bueatify(t):
     t = str(t)
-    t = t.encode('ascii','ignore')
     t = "<p>"+t+"</p>"
     return t
 
@@ -46,7 +45,7 @@ def version2():
 
 # version 1
 def version1():
-    acc = account.test_account
+    acc = account.not_duplicated_account
     htmlfile = "notif.html"
     os.system(" > " + htmlfile)
     for a in acc:
@@ -59,8 +58,25 @@ def version1():
                 text += bueatify(i)
             t = putwrap(email , text)
             os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
+    pagescript = '''
+    <script>
+    p = document.getElementsByTagName("p")
+    var reply = "回复了你的冒泡"
+    var recom = "被推荐"
+    for ( i in p){ 
+        var info=p[i].innerHTML; 
+        if(info.indexOf(reply)>0){
+            p[i].style.backgroundColor="#ff0" ;
+        }
+        if(info.indexOf(recom)>0){
+            p[i].style.backgroundColor="#f00" ;
+        }
+    }
+    </script>
+    '''
+    os.system(" echo \"" + str(pagescript) + "\" >> " + htmlfile) 
 
 if __name__ == "__main__":
-    version2()
+    version1()
 
 
