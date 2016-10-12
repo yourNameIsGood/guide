@@ -13,7 +13,7 @@ def get_notif(email, page=1, size=10):
     res = curl.get(url, cookie_path)
     res = json.loads(res)
     if res['code'] == 0:
-        os.system(" echo \"" + str(res) + "\" >> " + dbfile) 
+        os.system(" echo \"" + str(res) + "\" > " + dbfile) 
         return True
     else:
         return False
