@@ -12,6 +12,7 @@ import job
 
 def notif():
     logfile = "LogOfRun"
+    os.system("rm notif/*")
     acc = account.test_account
     for a in acc:
         uid = str(a)

@@ -9,9 +9,7 @@ from random import randint
 
 def get_notif(email, page=1, size=10):
     dbfile = "notif/"+email
-    os.system(" echo \"" + ""+ "\" > " + dbfile) 
-    dbjsonfile =  dbfile + "json"
-    os.system(" echo \"" + "" + "\" > " + dbjsonfile) 
+    dbjsonfile =  'notif/json_'+ email
     url = "https://coding.net/api/notification?page="+str(page)+"&pageSize="+str(size)
     cookie_path = "cookies"+os.sep+email
     res = curl.get(url, cookie_path)
@@ -25,13 +23,9 @@ def get_notif(email, page=1, size=10):
             jsondata = json.dumps(i)
             print 'jsondata'
             print 'jsondata'
-            print 'jsondata'
-            print 'jsondata'
-            print 'jsondata'
-            print 'jsondata'
-            print jsondata
             time.sleep(3)
-            os.system(" echo \"" + jsondata + "\" >> " + dbjsonfile) 
+            os.system(" echo \"" + str(jsondata) + "\" >> " + dbfile) 
+            #os.system(" echo \"" + str(jsondata) + "\" >> " + dbjsonfile) 
         return True
     else:
         return False
