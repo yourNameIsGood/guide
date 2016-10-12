@@ -60,16 +60,17 @@ def version1():
             os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
     pagescript = '''
     <script>
-    p = document.getElementsByTagName("p")
-    var reply = "回复了你的冒泡"
-    var recom = "被推荐"
+    p = document.getElementsByTagName('p')
+    var reply = '回复了你的冒泡'
+    var mention = '中提到了你'
+    var recom = '被推荐'
     for ( i in p){ 
         var info=p[i].innerHTML; 
-        if(info.indexOf(reply)>0){
-            p[i].style.backgroundColor="#ff0" ;
+        if(info.indexOf(reply)>0 || info.indexOf(mention)>0 ){
+            p[i].style.backgroundColor='#ff0' ;
         }
         if(info.indexOf(recom)>0){
-            p[i].style.backgroundColor="#f00" ;
+            p[i].style.backgroundColor='#f00' ;
         }
     }
     </script>
