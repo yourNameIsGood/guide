@@ -17,7 +17,9 @@ def get_notif(email, page=1, size=10):
         datalist = res['data']['list']
         for i in datalist:
             t = i['content'].encode('utf-8')
+            i['content'] = t
             os.system(" echo \"" + str(t) + "\" >> " + dbfile) 
+            jsondata = json.dumps(
         return True
     else:
         return False

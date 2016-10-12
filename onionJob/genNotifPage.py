@@ -7,10 +7,11 @@ def bueatify(t):
     t = "<p>"+t+"</p>"
     return t
 
+
 def putwrap(email,t):
-    title = "<h3>"+email+"</h3>"
-    t = title + t
-    t += "<hr>"
+    divhead = "<h3>"+email+"</h3>"
+    divfoot = "<hr>" 
+    t = divhead+ t + divfoot
     return t
 
 
