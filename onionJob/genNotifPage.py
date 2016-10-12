@@ -29,10 +29,12 @@ if __name__ == "__main__":
         fname = "notif/json_"+email
         with open(fname, 'r') as f:
             datastr = f.read()
-        print datastr
+        #print datastr
+        #for i in datastr:
+        #    print i
+        #sys.exit(0)
         datalist = json.loads(datastr)
         text = ''
-        print type(datalist)
         for data in datalist:
             print data
             print str(data)
