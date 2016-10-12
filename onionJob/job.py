@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import os
 import curl
+import time
 import helper
 import random
 import json
@@ -63,6 +64,7 @@ def like(email, like_id=99999):
     return result
 
 def login(email):
+    time.sleep(3)
     url = "https://coding.net/api/login"
     login_data = "password=403ce753c041efda97535bdfbcf836ea7d20215d&remember_me=false&email="
     login_data += email

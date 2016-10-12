@@ -8,7 +8,8 @@ def bueatify(email,t):
 
 def putwrap(email,t):
     title = "<h3>"+email+"</h3>"
-    text = title + text
+    text = title + t
+    return text
 
 
 if __name__ == "__main__":
@@ -21,8 +22,7 @@ if __name__ == "__main__":
             data = f.readlines()
             for i in data:
                 text += bueatify(i)
-            title = "<h3>"+email+"</h3>"
-            text = title + text
+            t = putwrap(title , text)
             os.system(" echo \"" + str(t) + "\" >> " + htmlfile) 
 
     
