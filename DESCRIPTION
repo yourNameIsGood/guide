@@ -30,14 +30,14 @@ myShell/loop.sh
 # 长轮训 服务端
 longPolling.php
 
-# 从 kanunu 八 书下来
+# 从 kanunu 8 书下来
 get_book_from_kanunu.php
 
 # selenium python
 everdayTaskAtCoding.py
 createTaskCodingDotNet
 
-# 豆果重用cookie刷量
+# 豆果重用cookie S量
 douguo.php
 
 # 计算日期差
@@ -46,7 +46,7 @@ dateCalc.php
 # 轮训页面变化，生成动态title，提醒( better with chrome-extension )
 badminton.php
 
-# 刷51cto阅读量
+# S 51cto阅读量
 51cto.php
 
 #拼音列表
